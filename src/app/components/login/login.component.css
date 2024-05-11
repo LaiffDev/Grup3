@@ -56,4 +56,10 @@ span {
   padding: 15px;
   color: #fff;
   border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.ctas:hover {
+  background-color: #0f0e0e;
 }
