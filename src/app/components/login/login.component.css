@@ -5,12 +5,10 @@
 }
 
 .login-card {
-  width: 20%;
   padding: 30px;
   margin: auto;
   position: relative;
   top: 120px;
-  box-shadow: 8px 8px 18px rgb(218, 218, 218);
   border-radius: 10px;
 }
 
@@ -51,7 +49,7 @@ span {
 }
 
 .ctas {
-  width: 40%;
+  width: 60%;
   background-color: #3d3d3d;
   padding: 15px;
   color: #fff;

@@ -1,1 +1,65 @@
-<p>register works!</p>
+<div class="registration-section p-5 overflow w-full">
+  <div class="form mt-10 overflow-hidden">
+    <div class="mb-20">
+      <p class="text-[#303030] font-bold text-4xl">REGISTRATI</p>
+    </div>
+
+    <form action="" class="" (click)="saveUserDetails()">
+      <div class="nome-cognome mb-10">
+        <mat-form-field>
+          <mat-label>NOME E COGNOME</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </div>
+
+      <div class="nascita-telefono flex gap-10 mb-10">
+        <mat-form-field>
+          <mat-label>DATA DI NASCITA</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>TELEFONO</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </div>
+
+      <div class="email mb-10">
+        <mat-form-field>
+          <mat-label>EMAIL</mat-label>
+          <input matInput placeholder="pat@example.com" required />
+        </mat-form-field>
+      </div>
+
+      <div class="password mb-10">
+        <mat-form-field>
+          <mat-label>PASSWORD</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" required />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="confirm flex justify-center items-center gap-10">
+        <button
+          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-[30%] hover:bg-black transition-all"
+        >
+          AVANTI
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

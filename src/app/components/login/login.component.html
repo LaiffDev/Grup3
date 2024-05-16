@@ -1,31 +1,46 @@
 <div class="example-container">
-  <div class="login-card">
+  <div class="login-card w-fit">
     <div class="logo">
-      <img src="../../../assets/images/logo.png" alt="">
+      <img src="../../../assets/images/logo.png" alt="" />
     </div>
     <form [formGroup]="UserCredentials" (submit)="loginUser()">
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput placeholder="pat@example.com" formControlName="email" required/>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          required
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required/>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          required
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
       </mat-form-field>
-      <div class="forgot-password">
-      <a href="">password dimenticata?</a>
+      <div class="forgot-password hover:underline">
+        <a href="">password dimenticata?</a>
       </div>
 
       <div class="button-cta">
         <button class="ctas">ACCEDI</button>
         <span>oppure</span>
-        <button class="ctas">REGISTRATI</button>
+        <button class="ctas" routerLink="register">REGISTRATI</button>
       </div>
     </form>
   </div>
-
 </div>
