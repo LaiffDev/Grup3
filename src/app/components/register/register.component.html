@@ -4,7 +4,7 @@
       <p class="text-[#303030] font-bold text-4xl">REGISTRATI</p>
     </div>
 
-    <form action="" class="" (click)="saveUserDetails()">
+    <form action="" class="" (submit)="saveUserDetails()">
       <div class="nome-cognome mb-10">
         <mat-form-field>
           <mat-label>NOME E COGNOME</mat-label>
@@ -26,6 +26,18 @@
 
         <mat-form-field>
           <mat-label>TELEFONO</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </div>
+
+      <div class="tipo-documento flex gap-10 mb-5">
+        <mat-form-field>
+          <mat-label>TIPO DI DOCUMENTO</mat-label>
+          <input matInput required />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>NUMERO DOCUMENTO</mat-label>
           <input matInput required />
         </mat-form-field>
       </div>
