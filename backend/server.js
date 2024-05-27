@@ -1,20 +1,35 @@
+//const cors =  require('cors')
+//app.use(cors)
+
 const express =  require('express')
-const cors =  require('cors')
+const models = require('./models')
+const users = require('./controllers/users')
+
 const app = express()
-const PORT =  3008
+const PORT = 3000
 
-//USES
+app.use(express.json())
 
-app.use((cors))
+app.get('/', (req, res) => {
+  res.send('app.use(cors) commentato, bloccava il server')
+})
 
-
-app.get('/', function (req, res) {
-  res.send('SERVER RUNNING AS REQUESTED');
-});
-
-
+//ENDPOINTS
+app.get     ('/api/users', users.index)
+app.get     ('/api/users/:id', users.show)
+app.post    ('/api/users/insert', users.create)
+app.put     ('/api/users/update/:id', users.update)
+app.delete  ('/api/users/delete/:id', users.delete)
 
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`)
+  models.sequelize
+  .authenticate()
+  .then(function () {
+      console.log('Connection successful')
+      console.log(`App listening on http://localhost:${PORT}`)
+  })
+  .catch(function(error) {
+      console.log("Error creating connection:", error)
+  })
 })

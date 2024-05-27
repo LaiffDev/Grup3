@@ -13,7 +13,7 @@
       </div>
 
       <div class="nascita-telefono flex gap-10 mb-10">
-        <mat-form-field>
+        <!-- <mat-form-field>
           <mat-label>DATA DI NASCITA</mat-label>
           <input matInput [matDatepicker]="picker" />
           <mat-hint>MM/DD/YYYY</mat-hint>
@@ -22,7 +22,7 @@
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field>
           <mat-label>TELEFONO</mat-label>
@@ -30,7 +30,7 @@
         </mat-form-field>
       </div>
 
-      <div class="tipo-documento flex gap-10 mb-5">
+      <!-- <div class="tipo-documento flex gap-10 mb-5">
         <mat-form-field>
           <mat-label>TIPO DI DOCUMENTO</mat-label>
           <input matInput required />
@@ -38,6 +38,13 @@
 
         <mat-form-field>
           <mat-label>NUMERO DOCUMENTO</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </div> -->
+
+      <div class="codice-fiscale mb-10">
+        <mat-form-field>
+          <mat-label> CODICE FISCALE </mat-label>
           <input matInput required />
         </mat-form-field>
       </div>
