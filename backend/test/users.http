@@ -1,0 +1,33 @@
+@url = http://localhost:3000/api/users
+
+GET {{url}}
+
+###
+
+GET {{url}}/1
+
+###
+
+POST {{url}}/insert
+Content-Type: application/json
+
+{
+    "full_name": "real",
+    "cod_fisc": "no",
+    "phone_number": "23983892",
+    "email": "",
+    "secret": ""
+}
+
+###
+
+PUT {{url}}/update/1
+Content-Type: application/json
+
+{
+    "full_name": "eldioghane"
+}
+
+###
+
+DELETE {{url}}/delete/1
