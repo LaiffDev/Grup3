@@ -1,7 +1,5 @@
-//const cors =  require('cors')
-//app.use(cors)
-
 const express =  require('express')
+const cors =  require('cors')
 const models = require('./models')
 const users = require('./controllers/users')
 
@@ -9,6 +7,7 @@ const app = express()
 const PORT = 3000
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('app.use(cors) commentato, bloccava il server')
