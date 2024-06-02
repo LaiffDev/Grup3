@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserAuthenticationService } from '../../services/user-authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -20,19 +21,26 @@ export class RegisterComponent {
     secret : new FormControl('',[Validators.required])
   })
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private userService: UserAuthenticationService) {}
 
   ngOnInit(): void {
 
   }
 
   saveUserDetails() {
-    const full_name = this.RegisterUserForm.get('full_name').value
-    const phone_number = this.RegisterUserForm.get('phone_number').value
-    const cod_fisc = this.RegisterUserForm.get('cod_fisc').value
-    const email = this.RegisterUserForm.get('email').value
-    const secret = this.RegisterUserForm.get('secret').value
+    const full_name = this.RegisterUserForm.value.full_name
+    const cod_fisc = this.RegisterUserForm.value.cod_fisc
+    const phone_number = this.RegisterUserForm.value.phone_number
+    const email = this.RegisterUserForm.value.email
+    const secret = this.RegisterUserForm.value.secret
 
-    console.log(`Username : ${full_name} | Phone Number : ${phone_number} |Codice Fiscale : ${cod_fisc} |Email : ${email} |Password : ${secret}`)
+    this.userService.RegisterUser(full_name,cod_fisc,phone_number,email,secret).subscribe({
+      next:(res) => {
+        console.log(`User registered successfully : ${res}`)
+      },
+      error:(err) => {
+        console.log(`Error registering user : ${err}`)
+      }
+    })
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserAuthenticationService } from '../../services/user-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   hide = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private _userService: UserAuthenticationService) {}
+
+  ngOnInit(){
+
+  }
 
   /**********************************************
    * FORM CHE PRENDE I VALORI CHE METTE L'UTENTE
@@ -24,11 +29,6 @@ export class LoginComponent {
    * FUNZIONE DEL LOGIN
    **********************/
   loginUser() {
-    const email = this.UserCredentials.value.email;
-    const password = this.UserCredentials.value.password;
 
-    if (email === 'test@test.it' && password === '12345') {
-      this.router.navigate(['home']);
-    }
   }
 }
