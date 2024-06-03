@@ -25,7 +25,7 @@ export class UserAuthenticationService {
   }
 
 
-  //SERVICE per ricevere tutti gli utenti registrati
+  //SERVICE per ricevere tutti gli utenti
   public GetRegisteredUsers(){
     return this._http.get<User>(`${environment.baseUrl}/api/users`)
   }

@@ -26,21 +26,20 @@ export class RegisterComponent {
   ngOnInit(): void {
 
   }
-
   saveUserDetails() {
-    const full_name = this.RegisterUserForm.value.full_name
-    const cod_fisc = this.RegisterUserForm.value.cod_fisc
-    const phone_number = this.RegisterUserForm.value.phone_number
-    const email = this.RegisterUserForm.value.email
-    const secret = this.RegisterUserForm.value.secret
+    // Destructure form values for better readability
+    const { full_name, cod_fisc, phone_number, email, secret } = this.RegisterUserForm.value;
 
-    this.userService.RegisterUser(full_name,cod_fisc,phone_number,email,secret).subscribe({
-      next:(res) => {
-        console.log(`User registered successfully : ${res}`)
+
+    this.userService.RegisterUser(full_name, cod_fisc, phone_number, email, secret).subscribe({
+      next: (res) => {
+        console.log(`User registered successfully: ${res}`);
+        this.router.navigate(['car-register'])
       },
-      error:(err) => {
-        console.log(`Error registering user : ${err}`)
+      error: (err) => {
+        console.error(`Error registering user: ${err}`);
       }
-    })
+    });
   }
+  
 }

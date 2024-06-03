@@ -14,7 +14,6 @@ export class LoginComponent {
   constructor(private router: Router, private _userService: UserAuthenticationService) {}
 
   ngOnInit(){
-
   }
 
   /**********************************************
@@ -28,7 +27,5 @@ export class LoginComponent {
   /**********************
    * FUNZIONE DEL LOGIN
    **********************/
-  loginUser() {
-
-  }
+  loginUser() {}
 }
