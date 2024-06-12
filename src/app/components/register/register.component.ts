@@ -26,15 +26,23 @@ export class RegisterComponent {
   ngOnInit(): void {
 
   }
+  /**************************************
+   * FUNCTION TO REGISTER A USER 
+   * USING THE UserAuthenticationService
+   *************************************/
   saveUserDetails() {
     // Destructure form values for better readability
     const { full_name, cod_fisc, phone_number, email, secret } = this.RegisterUserForm.value;
 
-
     this.userService.RegisterUser(full_name, cod_fisc, phone_number, email, secret).subscribe({
       next: (res) => {
-        console.log(`User registered successfully: ${res}`);
-        this.router.navigate(['car-register'])
+        if(this.RegisterUserForm.invalid){
+          console.error('Not all fields are completed')
+        }
+        else{
+          console.log(`User registered successfully: ${res}`);
+          this.router.navigate(['car-register'])
+        }
       },
       error: (err) => {
         console.error(`Error registering user: ${err}`);

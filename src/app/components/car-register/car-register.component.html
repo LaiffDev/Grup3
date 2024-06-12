@@ -1,6 +1,6 @@
 <div class="registration-section p-5 overflow w-full">
   <div class="form mt-10 overflow-hidden">
-    <form action="" class="">
+    <form [formGroup]="CarRegisterForm" (submit)="registerCar()">
       <div class="mb-20">
         <p class="text-[#303030] font-bold text-4xl">DATI VEICOLO</p>
       </div>
@@ -8,21 +8,21 @@
       <div class="modello mb-5">
         <mat-form-field>
           <mat-label>MARCA DELLA MACCHINA</mat-label>
-          <input matInput required />
+          <input matInput required formControlName="manufacture"/>
         </mat-form-field>
       </div>
 
       <div class="modello mb-5">
         <mat-form-field>
           <mat-label>MODELLO DELLA MACCHINA</mat-label>
-          <input matInput required />
+          <input matInput required formControlName="car_model"/>
         </mat-form-field>
       </div>
 
       <div class="targa mb-5">
         <mat-form-field>
           <mat-label>TARGA</mat-label>
-          <input matInput required />
+          <input matInput required formControlName="car_plate"/>
         </mat-form-field>
       </div>
 

@@ -13,8 +13,7 @@ export class LoginComponent {
 
   constructor(private router: Router, private _userService: UserAuthenticationService) {}
 
-  ngOnInit(){
-  }
+  ngOnInit(){}
 
   /**********************************************
    * FORM CHE PRENDE I VALORI CHE METTE L'UTENTE
