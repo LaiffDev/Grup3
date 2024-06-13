@@ -56,10 +56,6 @@ mat-form-field {
   text-align: center;
   padding: 10px;
 }
-.button-cta span {
-  font-size: 14px;
-  color: #666;
-}
 
 @media (max-width: 768px) {
   .form{
