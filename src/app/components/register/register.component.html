@@ -1,66 +1,53 @@
-<div class="registration-section p-5 overflow w-full">
-  <div class="form">
-    <div class="myb-20">
-      <p class="text-[#303030] font-bold ">REGISTRATI</p>
+<div class="example-container">
+  <div class="login-card">
+    <div class="logo">
+      <p class="title">REGISTRATI</p>
     </div>
+    <form [formGroup]="RegisterUserForm" (submit)="saveUserDetails()">
+      <mat-form-field appearance="fill">
+        <mat-label>NOME E COGNOME</mat-label>
+        <input matInput required formControlName="full_name"/>
+      </mat-form-field>
 
-    <form class="" [formGroup]="RegisterUserForm" (submit)="saveUserDetails()">
-      <div class="nome-cognome">
-        <mat-form-field>
-          <mat-label>NOME E COGNOME</mat-label>
-          <input matInput required formControlName="full_name"/>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>TELEFONO</mat-label>
+        <input matInput required formControlName="phone_number"/>
+      </mat-form-field>
 
-      <div class="nascita-telefono flex gap-10">
-        <mat-form-field>
-          <mat-label>TELEFONO</mat-label>
-          <input matInput required formControlName="phone_number"/>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>CODICE FISCALE</mat-label>
+        <input matInput required formControlName="cod_fisc"/>
+      </mat-form-field>
 
-      <div class="codice-fiscale">
-        <mat-form-field>
-          <mat-label>CODICE FISCALE</mat-label>
-          <input matInput required formControlName="cod_fisc"/>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>EMAIL</mat-label>
+        <input matInput placeholder="pat@example.com" required formControlName="email"/>
+      </mat-form-field>
 
-      <div class="email">
-        <mat-form-field>
-          <mat-label>EMAIL</mat-label>
-          <input matInput placeholder="pat@example.com" required formControlName="email"/>
-        </mat-form-field>
-      </div>
-
-      <div class="password">
-        <mat-form-field>
-          <mat-label>PASSWORD</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" required formControlName="secret"/>
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        </mat-form-field>
-      </div>
-
-      <div class="confirm flex justify-center items-center gap-10">
+      <mat-form-field appearance="fill">
+        <mat-label>PASSWORD</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" required formControlName="secret"/>
         <button
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-[30%] hover:bg-black transition-all text-center"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="button-cta">
+        <button
+          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all text-center"
           routerLink=""
         >
           INDIETRO
         </button>
-
-        <button class="button-cta"
-          routerLink="/car-register"
-          style="margin-left: 5px;"
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-[30%] hover:bg-black transition-all"
+      
+        <button
+          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all"
         >
           AVANTI
         </button>
