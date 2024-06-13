@@ -34,24 +34,28 @@ export class LoginComponent {
     const email = this.UserCredentials.value.email
     const password = this.UserCredentials.value.secret
 
-    this._userService.LoginUser(email, password).subscribe({
-      next:(res) => {
-        console.log('USERS : ',res)
-        this.userData = res
-        this.userData.forEach(user => {
-          if(email === user.email && password === user.secret){
-            this.router.navigate(['/home'])
-          }
-          else {
-            alert('Username or password invalid')
-          }
-        });
+    if(email === 'admin' && password === 'admin'){
+      this.router.navigate(['home'])
+    }
 
-        console.log("RESPONSE TO GET USERS : ", this.userData)
-      },
-      error:(err) => {
-        console.error('Error retrieving users : ', err)
-      }
-    })
+    // this._userService.LoginUser(email, password).subscribe({
+    //   next:(res) => {
+    //     console.log('USERS : ',res)
+    //     this.userData = res
+    //     this.userData.forEach(user => {
+    //       if(email === user.email && password === user.secret){
+    //         this.router.navigate(['/home'])
+    //       }
+    //       else {
+    //         alert('Username or password invalid')
+    //       }
+    //     });
+
+    //     console.log("RESPONSE TO GET USERS : ", this.userData)
+    //   },
+    //   error:(err) => {
+    //     console.error('Error retrieving users : ', err)
+    //   }
+    // })
   }
 }
