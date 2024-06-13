@@ -32,22 +32,23 @@ export class RegisterComponent {
    *************************************/
   saveUserDetails() {
     // Destructure form values for better readability
-    const { full_name, cod_fisc, phone_number, email, secret } = this.RegisterUserForm.value;
+    const { full_name, phone_number, cod_fisc, email, secret } = this.RegisterUserForm.value
 
-    this.userService.RegisterUser(full_name, cod_fisc, phone_number, email, secret).subscribe({
-      next: (res) => {
-        if(this.RegisterUserForm.invalid && this.RegisterUserForm.dirty){
-          console.error('Not all fields are completed')
+    if(full_name && phone_number && cod_fisc && email && secret){
+      this.userService.RegisterUser(full_name,phone_number,cod_fisc,email,secret).subscribe({
+        next : (res) => {
+          console.log(res)
+          alert('Registrazione avvenuto con successo')
+          this.router.navigate([''])
+        },
+        error : (err) => {
+          console.error('Errore nella registrazione : ', err)
         }
-        else{
-          console.log(`User registered successfully: ${res}`);
-          this.router.navigate(['car-register'])
-        }
-      },
-      error: (err) => {
-        console.error(`Error registering user: ${err}`);
-      }
-    });
+      })
+    }
+    else{
+      alert('Impossibile registarsi. Controlla i campi!')
+    }
   }
   
 }

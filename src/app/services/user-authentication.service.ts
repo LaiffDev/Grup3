@@ -23,9 +23,5 @@ export class UserAuthenticationService {
     };
     return this._http.post<User>(`${environment.baseUrl}/api/users/insert`, body)
   }
-
-  public LoginUser(email: string, password : string){
-    const body = {email : email, password : password}
-    return this._http.get<User>(`${environment.baseUrl}/api/users`)
-  }
+  
 }
