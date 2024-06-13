@@ -13,7 +13,7 @@ export class UserAuthenticationService {
 
 
   //SERVICE per la registrazione dell'utente
-  public RegisterUser(full_name: string,cod_fisc: string,phone_number: string, email: string, secret: string ): Observable<User> {
+  public RegisterUser(full_name: string, cod_fisc: string, phone_number: string, email: string, secret: string ): Observable<User> {
     const body = {
       full_name: full_name,
       cod_fisc: cod_fisc,
@@ -24,4 +24,8 @@ export class UserAuthenticationService {
     return this._http.post<User>(`${environment.baseUrl}/api/users/insert`, body)
   }
 
+  public LoginUser(email: string, password : string){
+    const body = {email : email, password : password}
+    return this._http.get<User>(`${environment.baseUrl}/api/users`)
+  }
 }

@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      car.belongsTo(models.user)
     }
   }
   car.init({
     manufacture: DataTypes.STRING,
     car_model: DataTypes.STRING,
-    car_plate: DataTypes.STRING,
+    car_plate: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'car',
