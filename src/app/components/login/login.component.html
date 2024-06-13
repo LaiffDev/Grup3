@@ -1,7 +1,7 @@
 <div class="example-container">
-  <div class="login-card w-fit">
+  <div class="login-card">
     <div class="logo">
-      <img src="../../../assets/images/logo.png" alt="" />
+      <img src="../../../assets/images/logo.png" alt="Logo" />
     </div>
     <form [formGroup]="UserCredentials" (submit)="loginUser()">
       <mat-form-field>
@@ -32,7 +32,7 @@
           <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
       </mat-form-field>
-      <div class="forgot-password hover:underline">
+      <div class="forgot-password">
         <a href="">password dimenticata?</a>
       </div>
 
