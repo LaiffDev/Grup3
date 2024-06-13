@@ -5,35 +5,35 @@
     </div>
 
     <form class="" [formGroup]="RegisterUserForm" (submit)="saveUserDetails()">
-      <div class="nome-cognome mb-10">
+      <div class="nome-cognome">
         <mat-form-field>
           <mat-label>NOME E COGNOME</mat-label>
           <input matInput required formControlName="full_name"/>
         </mat-form-field>
       </div>
 
-      <div class="nascita-telefono flex gap-10 mb-10">
+      <div class="nascita-telefono flex gap-10">
         <mat-form-field>
           <mat-label>TELEFONO</mat-label>
           <input matInput required formControlName="phone_number"/>
         </mat-form-field>
       </div>
 
-      <div class="codice-fiscale mb-10">
+      <div class="codice-fiscale">
         <mat-form-field>
           <mat-label>CODICE FISCALE</mat-label>
           <input matInput required formControlName="cod_fisc"/>
         </mat-form-field>
       </div>
 
-      <div class="email mb-10">
+      <div class="email">
         <mat-form-field>
           <mat-label>EMAIL</mat-label>
           <input matInput placeholder="pat@example.com" required formControlName="email"/>
         </mat-form-field>
       </div>
 
-      <div class="password mb-10">
+      <div class="password">
         <mat-form-field>
           <mat-label>PASSWORD</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" required formControlName="secret"/>
