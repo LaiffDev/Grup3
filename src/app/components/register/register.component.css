@@ -1,28 +1,48 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+  overflow: hidden;
 }
 
-.form{
-  padding: 30px;
-  margin: auto;
-  position: relative;
-  top: 20px;
-  border-radius: 10px;
+.registration-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0; 
+}
+
+.form {
+  background: rgb(252, 252, 252);
+  padding: 20px; /* Increased padding for more height */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+
+mat-form-field {
+  width: 100% !important;
+  margin-bottom: 10px; 
+  border-radius: 10px !important;
 }
 
 .ctas {
-  width: 55%;
-  background-color: #3d3d3d;
-  padding: 15px;
-  color: #fff;
-  border-radius: 16px;
+  width: 100%;
+  padding: 10px; /* Increased padding for button height */
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5c5c5d;
+  color: white;
   cursor: pointer;
-  transition: all 0.15s linear;
+  font-size: 16px;
 }
 
-.confirm{
+.ctas:hover {
+  background-color:#3b3c3c;
+}
+
+.confirm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,12 +52,65 @@
   font-weight: 500;
 }
 
-mat-form-field {
-  width: 100% !important;
-  border-radius: 10px !important;
-}
-
-.mb-20{
+.mb-20 {
   text-align: center;
   padding: 10px;
+}
+.button-cta span {
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .form{
+    overflow: hidden;
+    padding: 20px; /* Adjusted padding for smaller screens */
+  }
+
+  .ctas {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form {
+    overflow: hidden;
+    padding: 20px; /* Adjusted padding for smaller screens */
+  }
+
+  .ctas {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    overflow: hidden;
+    padding: 15px; /* Adjusted padding for very small screens */
+  }
+
+  .ctas {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+  .ctas {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+
+@media (max-width: 480px) {
+  .form {
+    overflow: hidden;
+    padding: 15px; /* Adjusted padding for very small screens */
+  }
+
+  .ctas {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
