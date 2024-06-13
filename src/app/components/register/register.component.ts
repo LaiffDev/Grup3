@@ -36,7 +36,7 @@ export class RegisterComponent {
 
     this.userService.RegisterUser(full_name, cod_fisc, phone_number, email, secret).subscribe({
       next: (res) => {
-        if(this.RegisterUserForm.invalid){
+        if(this.RegisterUserForm.invalid && this.RegisterUserForm.dirty){
           console.error('Not all fields are completed')
         }
         else{

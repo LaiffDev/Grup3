@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.send('app.use(cors) commentato, bloccava il server')
+  res.send('hello')
 })
 
 //ENDPOINTS
