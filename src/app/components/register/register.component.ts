@@ -39,7 +39,7 @@ export class RegisterComponent {
         next : (res) => {
           console.log(res)
           alert('Registrazione avvenuto con successo')
-          this.router.navigate([''])
+          this.router.navigate(['car-register'])
         },
         error : (err) => {
           console.error('Errore nella registrazione : ', err)
