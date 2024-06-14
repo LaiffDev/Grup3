@@ -1,44 +1,44 @@
 Car = require('../models').car;
 
 module.exports = {
-  // Get a list of all Users using model.findAll()
+  // Get a list of all Cars using model.findAll()
   index(req, res) {
     Car.findAll()
-      .then((User) => {
-        res.status(200).json(User);
+      .then((Car) => {
+        res.status(200).json(Car);
       })
       .catch((error) => {
         res.status(500).json(error);
       });
   },
 
-  // Get an User by the unique ID using model.findById()
+  // Get a Car by the unique PLATE using model.findByPk()
   show(req, res) {
-    Car.findByPk(req.params.id)
-    .then((User) => {
-      res.status(200).json(User);
+    Car.findByPk(req.params.plate)
+    .then((Car) => {
+      res.status(200).json(Car);
     })
     .catch((error) => {
       res.status(500).json(error);
     });
   },
 
-  // Create a new User using model.create()
+  // Create a new Cars using model.create()
   create(req, res) {
     Car.create(req.body)
-      .then((newUser) => {
-        res.status(200).json(newUser);
+      .then((newCar) => {
+        res.status(200).json(newCar);
       })
       .catch((error) => {
         res.status(500).json(error);
       });
   },
 
-  // Edit an existing User details using model.update()
+  // Edit an existing Car details using model.update()
   update(req, res) {
     Car.update(req.body, {
       where: {
-        id: req.params.id
+        plate: req.params.plate
       }
     })
     .then((updatedRecords) => {
@@ -49,11 +49,11 @@ module.exports = {
     });
   },
 
-  // Delete an existing User by the unique ID using model.destroy()
+  // Delete an existing Car by the unique ID using model.destroy()
   delete(req, res) {
     Car.destroy({
       where: {
-        id: req.params.id
+        plate: req.params.plate
       }
     })
     .then((deletedRecords) => {
