@@ -1,7 +1,7 @@
 Car = require('../models').car;
 
 module.exports = {
-  // Get a list of all Users using model.findAll()
+  // Get a list of all Cars using model.findAll()
   index(req, res) {
     Car.findAll()
       .then((Car) => {
@@ -12,9 +12,9 @@ module.exports = {
       });
   },
 
-  // Get an User by the unique ID using model.findById()
+  // Get a Car by the unique PLATE using model.findByPk()
   show(req, res) {
-    Car.findByPk(req.params.id)
+    Car.findByPk(req.params.plate)
     .then((Car) => {
       res.status(200).json(Car);
     })
@@ -23,7 +23,7 @@ module.exports = {
     });
   },
 
-  // Create a new User using model.create()
+  // Create a new Cars using model.create()
   create(req, res) {
     Car.create(req.body)
       .then((newCar) => {
@@ -34,7 +34,7 @@ module.exports = {
       });
   },
 
-  // Edit an existing User details using model.update()
+  // Edit an existing Car details using model.update()
   update(req, res) {
     Car.update(req.body, {
       where: {
@@ -49,7 +49,7 @@ module.exports = {
     });
   },
 
-  // Delete an existing User by the unique ID using model.destroy()
+  // Delete an existing Car by the unique ID using model.destroy()
   delete(req, res) {
     Car.destroy({
       where: {

@@ -3,7 +3,7 @@ export interface User {
     phone_number: string |undefined,
     cod_fisc: string | undefined,
     email: string | undefined,
-    password: string | undefined,
+    secret: string | undefined,
     createdAt: string | undefined,
     updatedAt: string | undefined
 }
