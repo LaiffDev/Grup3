@@ -31,6 +31,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('car');
+    await queryInterface.dropTable('cars');
   }
 };
