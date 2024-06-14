@@ -32,11 +32,11 @@ app.delete  ('/api/cars/delete/:id', cars.delete)
 app.listen(PORT, () => {
   models.sequelize
   .authenticate()
-  .then(function () {
+  .then(() => {
       console.log('Connection successful')
       console.log(`App listening on http://localhost:${PORT}`)
   })
-  .catch(function(error) {
+  .catch((error) => {
       console.log("Error creating connection:", error)
   })
 })
