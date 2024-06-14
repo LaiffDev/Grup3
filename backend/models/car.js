@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   car.init({
-    manufacture: DataTypes.STRING,
-    car_model: DataTypes.STRING,
+    manufacturer: DataTypes.STRING,
+    model: DataTypes.STRING,
     car_plate: DataTypes.STRING
   }, {
     sequelize,

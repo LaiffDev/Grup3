@@ -3,19 +3,19 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('cars', {
-      id: {
+      plate: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(7)
       },
-      manufacture: {
+      manufacturer: {
         type: Sequelize.STRING
       },
-      car_model: {
+      model: {
         type: Sequelize.STRING
       },
-      car_plate: {
+      plate: {
         type: Sequelize.STRING
       },
       created_at: {
@@ -29,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('cars');
+    await queryInterface.dropTable('cars')
   }
-};
+}

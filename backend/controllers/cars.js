@@ -4,8 +4,8 @@ module.exports = {
   // Get a list of all Users using model.findAll()
   index(req, res) {
     Car.findAll()
-      .then((User) => {
-        res.status(200).json(User);
+      .then((Car) => {
+        res.status(200).json(Car);
       })
       .catch((error) => {
         res.status(500).json(error);
@@ -15,8 +15,8 @@ module.exports = {
   // Get an User by the unique ID using model.findById()
   show(req, res) {
     Car.findByPk(req.params.id)
-    .then((User) => {
-      res.status(200).json(User);
+    .then((Car) => {
+      res.status(200).json(Car);
     })
     .catch((error) => {
       res.status(500).json(error);
@@ -26,8 +26,8 @@ module.exports = {
   // Create a new User using model.create()
   create(req, res) {
     Car.create(req.body)
-      .then((newUser) => {
-        res.status(200).json(newUser);
+      .then((newCar) => {
+        res.status(200).json(newCar);
       })
       .catch((error) => {
         res.status(500).json(error);
@@ -38,7 +38,7 @@ module.exports = {
   update(req, res) {
     Car.update(req.body, {
       where: {
-        id: req.params.id
+        plate: req.params.plate
       }
     })
     .then((updatedRecords) => {
@@ -53,7 +53,7 @@ module.exports = {
   delete(req, res) {
     Car.destroy({
       where: {
-        id: req.params.id
+        plate: req.params.plate
       }
     })
     .then((deletedRecords) => {

@@ -15,15 +15,15 @@ export class CarRegisterComponent {
   constructor(private carService : CarRegistrationService, private router : Router){}
 
   CarRegisterForm = new FormGroup({
-    manufacture : new FormControl('',[Validators.required]),
-    car_model : new FormControl('',[Validators.required]),
-    car_plate : new FormControl('',[Validators.required]),
+    manufacturer : new FormControl('',[Validators.required]),
+    model : new FormControl('',[Validators.required]),
+    plate : new FormControl('',[Validators.required]),
   })
 
   registerCar(){
-    const { manufacture, car_model, car_plate} = this.CarRegisterForm.value;
+    const { manufacturer, model, plate} = this.CarRegisterForm.value;
 
-    this.carService.CarRegister(manufacture, car_model, car_plate).subscribe({
+    this.carService.CarRegister(manufacturer, model, plate).subscribe({
       next: (res) => {
         if(this.CarRegisterForm.invalid){
           console.error('Not all fields are completed')
