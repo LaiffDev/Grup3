@@ -6,38 +6,28 @@
     <form [formGroup]="RegisterUserForm" (submit)="saveUserDetails()">
       <mat-form-field appearance="fill">
         <mat-label>NOME E COGNOME</mat-label>
-        <input matInput required formControlName="full_name" />
+        <input matInput required formControlName="full_name"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>TELEFONO</mat-label>
-        <input matInput required formControlName="phone_number" />
+        <input matInput required formControlName="phone_number"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>CODICE FISCALE</mat-label>
-        <input matInput required formControlName="cod_fisc" />
+        <input matInput required formControlName="cod_fisc"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>EMAIL</mat-label>
-        <input
-          matInput
-          placeholder="pat@example.com"
-          required
-          formControlName="email"
-        />
+        <input matInput placeholder="pat@example.com" required formControlName="email"/>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>PASSWORD</mat-label>
-        <input
-          matInput
-          [type]="hide ? 'password' : 'text'"
-          required
-          formControlName="secret"
-        />
-        <button
+        <input matInput [type]="hide ? 'password' : 'text'" required formControlName="secret"/>
+        <a
           mat-icon-button
           matSuffix
           (click)="hide = !hide"
@@ -45,22 +35,22 @@
           [attr.aria-pressed]="hide"
         >
           <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-        </button>
+      </a>
       </mat-form-field>
 
       <div class="button-cta">
         <a
-          routerLink=""
           class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all text-center"
+          routerLink=""
         >
           INDIETRO
-        </a>
-
+      </a>
+      
         <button
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all text-center"
+          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all"
         >
           AVANTI
-      </button>
+        </button>
       </div>
     </form>
   </div>
