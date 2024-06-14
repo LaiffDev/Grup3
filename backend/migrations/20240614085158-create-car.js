@@ -2,21 +2,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('cars', {
-      id: {
+    await queryInterface.createTable('car', {
+      plate: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(7)
       },
-      manufacture: {
-        type: Sequelize.STRING
+      manufacturer: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      car_model: {
-        type: Sequelize.STRING
+      model: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      car_plate: {
-        type: Sequelize.STRING
+      owner_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       created_at: {
         allowNull: false,
@@ -29,6 +31,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('cars');
+    await queryInterface.dropTable('car');
   }
 };

@@ -1,7 +1,7 @@
 export interface Car {
-    manufacture: string | undefined,
-    car_model: string |undefined,
-    car_plate: string | undefined,
+    manufacturer: string | undefined,
+    model: string | undefined,
+    plate: string | undefined,
     createdAt: string | undefined,
     updatedAt: string | undefined
 }
