@@ -26,6 +26,10 @@ module.exports = {
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      id: {
+        type: Sequelize.CHAR,
+        allowNull: true
       }
     });
   },
