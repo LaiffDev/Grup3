@@ -14,7 +14,7 @@ export class LoginComponent {
 
   userData : any
 
-  constructor(private router: Router, private _userService: UserAuthenticationService) {}
+  constructor(private _router: Router, private _userService: UserAuthenticationService) {}
 
   ngOnInit(){
   }
@@ -30,5 +30,23 @@ export class LoginComponent {
   /**********************
    * FUNZIONE DEL LOGIN
    **********************/
-  loginUser() {}
+  loginUser() {
+    const {email, secret } = this.UserCredentials.value
+
+    if(email && secret){
+      this._userService.LoginUser(email,secret).subscribe({
+        next:(res) => {
+          console.log(res)
+          this._router.navigate(['home'])
+          alert('Login avvenuto con successo!')
+        },
+        error:(err) => {
+          console.error('Errore di accesso : ',err)
+        }
+      })
+    }
+    else{
+      alert('Errore! controlla che non ci siano campi vuoti')
+    }
+  }
 }

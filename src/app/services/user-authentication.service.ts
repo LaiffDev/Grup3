@@ -25,5 +25,14 @@ export class UserAuthenticationService {
     };
     return this._http.post<User>(`${environment.baseUrl}/api/users/insert`, body)
   }
+
+  //SERVICE il login dell'utente
+  public LoginUser(email, secret): Observable<User>{
+    const body = { 
+      email:email,
+      secret: secret
+    }
+    return this._http.post<User>(`${environment.baseUrl}/api/users`, body)
+  }
   
 }

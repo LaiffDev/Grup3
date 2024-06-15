@@ -23,19 +23,20 @@ export class CarRegisterComponent {
   registerCar(){
     const { plate, manufacturer, model } = this.CarRegisterForm.value;
 
-    this.carService.CarRegister(plate, manufacturer, model).subscribe({
-      next: (res) => {
-        if(this.CarRegisterForm.invalid){
-          console.error('Not all fields are completed')
+    if(plate && manufacturer && model){
+      this.carService.CarRegister(plate, manufacturer, model).subscribe({
+        next:(res) => {
+          console.log(res)
+          alert('Macchina registrata con successo!')
+          this.router.navigate([""])
+        },
+        error:(err) => {
+          console.error('Errore nella registrazione : ', err)
         }
-        else{
-          console.log(`User registered successfully: ${res}`);
-          this.router.navigate(['home'])
-        }
-      },
-      error: (err) => {
-        console.error(`Error registering user: ${err}`);
-      }
-    });
+      })
+    }
+    else{
+      alert('Campi non validi!')
+    }
   }
 }

@@ -32,10 +32,10 @@ export class RegisterComponent {
    *************************************/
   saveUserDetails() {
     // Destructure form values for better readability
-    const { full_name, phone_number, cod_fisc, email, secret } = this.RegisterUserForm.value
+    const { full_name, cod_fisc, phone_number,  email, secret } = this.RegisterUserForm.value
 
-    if(full_name && phone_number && cod_fisc && email && secret){
-      this.userService.RegisterUser(full_name,phone_number,cod_fisc,email,secret).subscribe({
+    if(full_name && cod_fisc && phone_number && email && secret){
+      this.userService.RegisterUser(full_name,cod_fisc,phone_number,email,secret).subscribe({
         next : (res) => {
           console.log(res)
           alert('Registrazione avvenuto con successo')

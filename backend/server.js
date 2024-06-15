@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 //ENDPOINTS
-app.get     ('/api/users', users.index)
+app.post     ('/api/users', users.index)
 app.get     ('/api/users/:id', users.show)
 app.post    ('/api/users/insert', users.create)
 app.put     ('/api/users/update/:id', users.update)
