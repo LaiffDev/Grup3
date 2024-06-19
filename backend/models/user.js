@@ -19,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     full_name: DataTypes.STRING,
-    phone_number: DataTypes.STRING,
-    cod_fisc: DataTypes.STRING,
+    phone_number: DataTypes.STRING(10),
+    cod_fisc: DataTypes.STRING(16),
     email: DataTypes.STRING,
     secret: DataTypes.STRING
   }, {

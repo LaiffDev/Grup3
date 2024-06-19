@@ -12,11 +12,11 @@ module.exports = {
         allowNull: false
       },
       phone_number: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(10),
         allowNull: false
       },
       cod_fisc: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(16),
         allowNull: false
       },
       email: {
