@@ -19,7 +19,7 @@ export class RegisterComponent {
     cod_fisc : new FormControl('',[Validators.required]),
     email : new FormControl('',[Validators.required]),
     secret : new FormControl('',[Validators.required])
-  })
+  });
 
   constructor(private router: Router, private userService: UserAuthenticationService) {}
 
@@ -47,8 +47,18 @@ export class RegisterComponent {
       })
     }
     else{
-      alert('Impossibile registarsi. Controlla i campi!')
+      alert('Impossibile registarsi. Controlla i campi!');
+      this.markFormFieldsAsInvalid();
     }
   }
-  
+
+  markFormFieldsAsInvalid() {
+    Object.keys(this.RegisterUserForm.controls).forEach(field => {
+      const control = this.RegisterUserForm.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+        control.markAsDirty({ onlySelf: true });
+      }
+    });
+  }
 }

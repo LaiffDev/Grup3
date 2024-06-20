@@ -1,57 +1,39 @@
-<div class="example-container">
-  <div class="login-card">
-    <div class="logo">
-      <p class="title">REGISTRATI</p>
-    </div>
-    <form [formGroup]="RegisterUserForm" (submit)="saveUserDetails()">
-      <mat-form-field appearance="fill">
-        <mat-label>NOME E COGNOME</mat-label>
-        <input matInput required formControlName="full_name"/>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>TELEFONO</mat-label>
-        <input matInput required formControlName="phone_number"/>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>CODICE FISCALE</mat-label>
-        <input matInput required formControlName="cod_fisc"/>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>EMAIL</mat-label>
-        <input matInput placeholder="pat@example.com" required formControlName="email"/>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>PASSWORD</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" required formControlName="secret"/>
-        <a
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
-          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </a>
-      </mat-form-field>
-
-      <div class="button-cta">
-        <a
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all text-center"
-          routerLink=""
-        >
-          INDIETRO
-      </a>
-      
-        <button
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-1/2 hover:bg-black transition-all"
-        >
-          AVANTI
-        </button>
-      </div>
-    </form>
+<div class="wrapper">
+  <div class="logo">
+    <p class="title">REGISTRATI</p>
   </div>
+  <form [formGroup]="RegisterUserForm" (submit)="saveUserDetails()" class="p-3 mt-3" novalidate>
+    <div class="form-field">
+      <span class="icon fas fa-user"></span>
+      <input type="text" name="full_name" id="full_name" placeholder="Nome e Cognome" formControlName="full_name" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-phone"></span>
+      <input type="text" name="phone_number" id="phone_number" placeholder="Telefono" formControlName="phone_number" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-id-card"></span>
+      <input type="text" name="cod_fisc" id="cod_fisc" placeholder="Codice Fiscale" formControlName="cod_fisc" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-envelope"></span>
+      <input type="email" name="email" id="email" placeholder="Email" formControlName="email" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-key"></span>
+      <input type="password" name="secret" id="pwd" placeholder="Password" formControlName="secret" [type]="hide ? 'password' : 'text'" required>
+      <button type="button" class="toggle-password" (click)="hide = !hide" aria-label="Hide password" [attr.aria-pressed]="hide">
+        <i class="{{ hide ? 'fas fa-eye-slash' : 'fas fa-eye' }}"></i>
+      </button>
+    </div>
+
+    <div class="button-cta mt-5">
+      <a class="ctas" routerLink="">INDIETRO</a>
+      <button class="ctas" type="submit">AVANTI</button>
+    </div>
+  </form>
 </div>
