@@ -1,1 +1,20 @@
-<img src="../../../assets/images/tbh-creature.gif">
+<div class="bg-[#181818] flex place-items-baseline justify-between p-5 text-white">
+    <div class="navs">
+        <button mat-button [matMenuTriggerFor]="menu">
+            <span class="material-symbols-rounded text-white text-4xl">
+                menu
+            </span>
+        </button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item>Profilo</button>
+        <button mat-menu-item (click)="logoutUser()">Logout</button>
+        </mat-menu>
+    </div>
+    <div class="font-bold">
+        <p>Ciao, {{ username }}</p>
+        <p></p>
+    </div>
+
+</div>
+
+
