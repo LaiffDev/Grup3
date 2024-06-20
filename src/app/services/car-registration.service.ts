@@ -20,4 +20,10 @@ export class CarRegistrationService {
       };
       return this._http.post<Car>(`${environment.baseUrl}/api/cars/insert`, body)
     }
+
+    public RetrieveCar(user_id: string){
+      console.log(user_id)
+      //return this._http.get(`${environment.baseUrl}/api/cars/${user_id}`)
+      
+    }
 }

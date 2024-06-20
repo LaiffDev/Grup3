@@ -12,6 +12,20 @@ module.exports = {
       });
   },
 
+  indexUsersCar(req, res) {
+    Car.findOne(req.params.user_id, {
+      where: {
+        owner_id: user_id
+      }
+    })
+      .then((Car) => {
+        res.status(200).json(Car)
+      })
+      .catch((error) => {
+        res.status(500).json(error)
+      })
+  },
+
   // Get a Car by the unique PLATE using model.findByPk()
   show(req, res) {
     Car.findByPk(req.params.plate)
@@ -24,6 +38,7 @@ module.exports = {
   },
 
   // Create a new Cars using model.create()
+  // owner_id da popolare
   create(req, res) {
     Car.create(req.body)
       .then((newCar) => {

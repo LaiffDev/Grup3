@@ -21,6 +21,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { CarRegisterComponent } from './components/car-register/car-register.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CarRegisterComponent } from './components/car-register/car-register.com
     RegisterComponent,
     HomepageComponent,
     CarRegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
