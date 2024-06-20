@@ -1,0 +1,33 @@
+@url = http://localhost:3000/api/cars
+
+GET {{url}}
+
+###
+
+GET {{url}}/1718888390927-6681
+
+###
+
+POST {{url}}/insert
+Content-type: application/json
+
+{
+    "plate": "BW123WN",
+    "manufacturer": "qowdiqowid",
+    "model": "sdf"
+}
+
+###
+
+PUT {{url}}/update/1
+Content-type: application/json
+
+{
+
+}
+
+###
+
+DELETE {{url}}/delete/1
+
+

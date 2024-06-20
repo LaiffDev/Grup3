@@ -42,6 +42,8 @@ export class LoginComponent {
           const user = this.userData.find(user => email === user.email && secret === user.secret);
           if (user) {
             localStorage.setItem('username', user.full_name);
+            localStorage.setItem('userID',user.id)
+            
             this._router.navigate(['home']);
             alert('Login avvenuto con successo!');
           } else {
