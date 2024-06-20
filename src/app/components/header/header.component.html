@@ -7,6 +7,7 @@
         </button>
         <mat-menu #menu="matMenu">
         <button mat-menu-item>Profilo</button>
+        <button mat-menu-item [routerLink]='["/car-register"]'>Registra auto</button>
         <button mat-menu-item (click)="logoutUser()">Logout</button>
         </mat-menu>
     </div>
