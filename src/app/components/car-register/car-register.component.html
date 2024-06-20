@@ -1,44 +1,26 @@
-<div class="registration-section p-5 overflow w-full">
-  <div class="form mt-10 overflow-hidden">
-    <form [formGroup]="CarRegisterForm" (submit)="registerCar()">
-      <div class="mb-20">
-        <p class="text-[#303030] font-bold text-4xl">DATI VEICOLO</p>
-      </div>
-
-      <div class="targa mb-5">
-        <mat-form-field>
-          <mat-label>TARGA</mat-label>
-          <input matInput required formControlName="plate"/>
-        </mat-form-field>
-      </div>
-
-      <div class="modello mb-5">
-        <mat-form-field>
-          <mat-label>MARCA DELLA MACCHINA</mat-label>
-          <input matInput required formControlName="manufacturer"/>
-        </mat-form-field>
-      </div>
-
-      <div class="modello mb-5">
-        <mat-form-field>
-          <mat-label>MODELLO DELLA MACCHINA</mat-label>
-          <input matInput required formControlName="model"/>
-        </mat-form-field>
-      </div>
-
-      <div class="confirm flex justify-center items-center gap-10">
-        <button
-          routerLink=""
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-[30%] hover:bg-black transition-all"
-        >
-        INDIETRO
-        </button>
-        <button
-          class="ctas bg-[#303030] p-5 text-white rounded-[16px] w-[30%] hover:bg-black transition-all"
-        >
-        CONFERMA
-        </button>
-      </div>
-    </form>
+<div class="wrapper">
+  <div class="logo">
+    <p class="title">DATI VEICOLO</p>
   </div>
+  <form [formGroup]="CarRegisterForm" (submit)="registerCar()" class="p-3 mt-3" novalidate>
+    <div class="form-field">
+      <span class="icon fas fa-car"></span>
+      <input type="text" name="plate" id="plate" placeholder="Targa" formControlName="plate" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-industry"></span>
+      <input type="text" name="manufacturer" id="manufacturer" placeholder="Marca della Macchina" formControlName="manufacturer" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-car-side"></span>
+      <input type="text" name="model" id="model" placeholder="Modello della Macchina" formControlName="model" required>
+    </div>
+
+    <div class="button-cta mt-5">
+      <a class="ctas" routerLink="">INDIETRO</a>
+      <button class="ctas" type="submit">CONFERMA</button>
+    </div>
+  </form>
 </div>
