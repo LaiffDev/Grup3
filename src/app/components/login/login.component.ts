@@ -36,7 +36,13 @@ export class LoginComponent {
     if(email && secret){
       this._userService.LoginUser(email,secret).subscribe({
         next:(res) => {
-          console.log(res)
+          this.userData = res
+          console.log("User Data : ",this.userData)
+
+          this.userData.forEach(user => {
+            localStorage.setItem('username',user.full_name)
+          });
+          
           this._router.navigate(['home'])
           alert('Login avvenuto con successo!')
         },

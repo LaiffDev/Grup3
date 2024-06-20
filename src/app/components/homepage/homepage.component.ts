@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
 
+  username: any
+
+  ngOninit(){
+    this.username = localStorage.getItem('username')
+    console.log("user_name : ", this.username)
+  }
+
 }
