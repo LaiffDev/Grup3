@@ -31,28 +31,30 @@ export class LoginComponent {
    * FUNZIONE DEL LOGIN
    **********************/
   loginUser() {
-    const {email, secret } = this.UserCredentials.value
-
-    if(email && secret){
-      this._userService.LoginUser(email,secret).subscribe({
-        next:(res) => {
-          this.userData = res
-          console.log("User Data : ",this.userData)
-
-          this.userData.forEach(user => {
-            localStorage.setItem('username',user.full_name)
-          });
-          
-          this._router.navigate(['home'])
-          alert('Login avvenuto con successo!')
+    const { email, secret } = this.UserCredentials.value;
+  
+    if (email && secret) {
+      this._userService.LoginUser(email, secret).subscribe({
+        next: (res) => {
+          this.userData = res;
+          console.log("User Data : ", this.userData);
+  
+          const user = this.userData.find(user => email === user.email && secret === user.secret);
+          if (user) {
+            localStorage.setItem('username', user.full_name);
+            this._router.navigate(['home']);
+            alert('Login avvenuto con successo!');
+          } else {
+            alert('Credenziali non valide!');
+          }
         },
-        error:(err) => {
-          console.error('Errore di accesso : ',err)
+        error: (err) => {
+          console.error('Errore di accesso : ', err);
         }
-      })
-    }
-    else{
-      alert('Errore! controlla che non ci siano campi vuoti')
+      });
+    } else {
+      alert('Errore! controlla che non ci siano campi vuoti');
     }
   }
+  
 }
