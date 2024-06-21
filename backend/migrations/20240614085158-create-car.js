@@ -9,7 +9,8 @@ module.exports = {
       },
       owner_id: {
         type: Sequelize.STRING,
-        primaryKey: true
+        unique: true,
+        allowNull: false
       },
       manufacturer: {
         type: Sequelize.STRING,
