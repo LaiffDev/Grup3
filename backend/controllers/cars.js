@@ -13,9 +13,9 @@ module.exports = {
   },
 
   indexUsersCar(req, res) {
-    Car.findOne(req.params.user_id, {
+    Car.findOne({
       where: {
-        owner_id: user_id
+        owner_id: req.params.user_id
       }
     })
       .then((Car) => {

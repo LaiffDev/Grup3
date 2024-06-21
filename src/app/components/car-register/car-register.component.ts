@@ -22,16 +22,17 @@ export class CarRegisterComponent {
 
   registerCar(){
     const { plate, manufacturer, model } = this.CarRegisterForm.value;
+    const userID = localStorage.getItem('userID')
 
     if(plate && manufacturer && model){
-      this.carService.CarRegister(plate, manufacturer, model).subscribe({
+      this.carService.CarRegister(plate, manufacturer, model, userID).subscribe({
         next:(res) => {
           console.log(res)
           alert('Macchina registrata con successo!')
           this.router.navigate([""])
         },
         error:(err) => {
-          console.error('Errore nella registrazione : ', err)
+          console.error('Errore nella registrazione: ', err)
         }
       })
     }

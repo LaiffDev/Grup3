@@ -7,6 +7,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.STRING(7)
       },
+      owner_id: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
+      },
       manufacturer: {
         type: Sequelize.STRING,
         allowNull: false
@@ -14,10 +19,6 @@ module.exports = {
       model: {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      owner_id: {
-        type: Sequelize.STRING,
-        allowNull: true
       },
       created_at: {
         allowNull: false,

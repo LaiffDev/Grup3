@@ -24,7 +24,7 @@ app.put     ('/api/users/update/:id', users.update)
 app.delete  ('/api/users/delete/:id', users.delete)
 
 app.get     ('/api/cars', cars.index)
-//app.get     ('/api/cars/:user_id', cars.indexUsersCar)
+app.get     ('/api/cars/:user_id', cars.indexUsersCar)
 app.post    ('/api/cars/insert', cars.create)
 app.put     ('/api/cars/update/:id', cars.update)
 app.delete  ('/api/cars/delete/:id', cars.delete)
