@@ -12,11 +12,12 @@ export class CarRegistrationService {
   constructor(private _http: HttpClient) { }
 
     //SERVICE per la registrazione dell'utente
-    public CarRegister(plate:string, manufacturer:string, model:string): Observable<Car> {
+    public CarRegister(plate:string, manufacturer:string, model:string, userID:string): Observable<Car> {
       const body = {
         plate: plate,
         manufacturer: manufacturer,
-        model: model
+        model: model,
+        owner_id: userID
       };
       return this._http.post<Car>(`${environment.baseUrl}/api/cars/insert`, body)
     }

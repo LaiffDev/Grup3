@@ -12,6 +12,20 @@ module.exports = {
       });
   },
 
+  indexUsersCar(req, res) {
+    Car.findOne({
+      where: {
+        owner_id: req.params.user_id
+      }
+    })
+      .then((Car) => {
+        res.status(200).json(Car)
+      })
+      .catch((error) => {
+        res.status(500).json(error)
+      })
+  },
+
   // Get a Car by the unique PLATE using model.findByPk()
   show(req, res) {
     Car.findByPk(req.params.plate)
