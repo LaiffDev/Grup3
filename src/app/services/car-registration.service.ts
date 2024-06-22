@@ -11,7 +11,7 @@ export class CarRegistrationService {
 
   constructor(private _http: HttpClient) { }
 
-    //SERVICE per la registrazione dell'utente
+    //SERVICE per la registrazione dell'auto
     public CarRegister(plate:string, manufacturer:string, model:string, userID:string): Observable<Car> {
       const body = {
         plate: plate,
@@ -23,8 +23,6 @@ export class CarRegistrationService {
     }
 
     public RetrieveCar(user_id: string){
-      console.log(user_id)
-      //return this._http.get(`${environment.baseUrl}/api/cars/${user_id}`)
-      
+      return this._http.get(`${environment.baseUrl}/api/cars/${user_id}`)
     }
 }

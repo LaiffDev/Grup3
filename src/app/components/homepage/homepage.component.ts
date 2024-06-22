@@ -11,8 +11,7 @@ import { UserAuthenticationService } from '../../services/user-authentication.se
 })
 export class HomepageComponent {
 
-
-  cars: any
+  car: any
   user: User | undefined;
   userID: string | null = null;
 
@@ -23,6 +22,12 @@ export class HomepageComponent {
   ) { }
 
   ngOnInit() {
-    // this.carService.RetrieveCar()
+    if (typeof localStorage !== 'undefined') {
+      this.userID = localStorage.getItem('userID');
+      console.log(this.userID)
+      this.carService.RetrieveCar(this.userID).forEach(car => {
+        this.car = JSON.stringify(car)
+      })
+    }
   }
 }
