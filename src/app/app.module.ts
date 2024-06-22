@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { CarRegisterComponent } from './components/car-register/car-register.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { CarRegisterComponent } from './components/car-register/car-register.com
     RegisterComponent,
     HomepageComponent,
     CarRegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { CarRegisterComponent } from './components/car-register/car-register.com
     MatIconModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatMenuModule
   ],
   providers: [
     provideClientHydration(),

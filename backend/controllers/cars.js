@@ -38,6 +38,7 @@ module.exports = {
   },
 
   // Create a new Cars using model.create()
+  // owner_id da popolare
   create(req, res) {
     Car.create(req.body)
       .then((newCar) => {

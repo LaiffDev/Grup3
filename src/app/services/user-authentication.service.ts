@@ -34,5 +34,9 @@ export class UserAuthenticationService {
     }
     return this._http.post<User>(`${environment.baseUrl}/api/users`, body)
   }
+
+  public RetrieveUserById(id:string): Observable<User>{
+    return this._http.get<User>(`${environment.baseUrl}/${id}`);
+  }
   
 }

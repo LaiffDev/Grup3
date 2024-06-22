@@ -1,93 +1,121 @@
+/* Importing fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+/* Resetting */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  background: #e72a00;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+.wrapper .form-field input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+
+.wrapper {
+  max-width: 350px;
+  min-height: 550px;
+  margin: 80px auto;
+  padding: 40px 30px 30px 30px;
+  background-color: #ecf0f3;
+  border-radius: 15px;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
   overflow: hidden;
 }
 
-.example-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 10px;
-  background-color: #f0f0f0; /* Optional: adds a background color */
-  box-sizing: border-box;
-  overflow: hidden; /* Ensure no overflow within this container */
+.logo {
+  width: 80px;
+  margin: auto;
 }
 
-.login-card {
-  background: white;
-  padding: 30px; /* Increased padding for more height */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  box-sizing: border-box; /* Ensures padding is included in the width calculation */
-  overflow: hidden; /* Hide any overflow from this element */
-}
-
-.title {
-  color: #303030;
-  font-weight: bold;
-  font-size: 30px; 
-  text-align: center;
-  margin-top: 10px; 
+.logo .title {
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 1.3px;
+  color: #555;
+  margin-top: 25px;
   margin-bottom: 25px;
+  margin-left: -20px;
 }
 
-mat-form-field {
-  width: 100%;
+.wrapper .form-field {
+  position: relative;
   margin-bottom: 20px;
 }
 
+.wrapper .form-field input {
+  width: 100%;
+  padding: 12px 20px 12px 40px;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
 
-.button-cta {
+.wrapper .form-field input:focus {
+  border-color: #03a9f4;
+}
+
+.wrapper .form-field .icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+.wrapper .form-field .toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.wrapper .button-cta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px; /* Increased margin for more spacing */
-  width: 100%; /* Ensure the container takes full width */
+  margin-top: 40px;
 }
 
-.button-cta .ctas {
+.wrapper .button-cta .ctas {
   width: 48%;
-  padding: 12px; /* Increased padding for button height */
+  height: 40px;
+  background-color: #03a9f4;
+  color: #fff;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   border: none;
-  border-radius: 4px;
-  background-color: #48494a;
-  color: white;
+  outline: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  padding: 10px;
 }
 
-.button-cta .ctas:hover {
-  background-color: #383939;
+.wrapper .button-cta .ctas:hover {
+  background-color: #039be5;
 }
 
-@media (max-width: 768px) {
-  .login-card {
-    padding: 20px; /* Adjusted padding for smaller screens */
-  }
-
-  .button-cta .ctas {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .title {
-    font-size: 2rem; /* Adjusted font size for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .login-card {
-    padding: 15px; /* Adjusted padding for very small screens */
-  }
-
-  .button-cta .ctas {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  .title {
-    font-size: 1.75rem; /* Adjusted font size for very small screens */
+@media (max-width: 380px) {
+  .wrapper {
+    margin: 30px auto;
+    padding: 40px 15px 15px 15px;
   }
 }

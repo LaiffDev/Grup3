@@ -19,7 +19,7 @@ export class RegisterComponent {
     cod_fisc : new FormControl('',[Validators.required]),
     email : new FormControl('',[Validators.required]),
     secret : new FormControl('',[Validators.required])
-  })
+  });
 
   constructor(private router: Router, private userService: UserAuthenticationService) {}
 
@@ -34,12 +34,12 @@ export class RegisterComponent {
     // Destructure form values for better readability
     const { full_name, cod_fisc, phone_number,  email, secret } = this.RegisterUserForm.value
 
-    if(full_name && cod_fisc && phone_number && email && secret){
+    if (full_name && cod_fisc && phone_number.length === 10 && email && secret) {
       this.userService.RegisterUser(full_name,cod_fisc,phone_number,email,secret).subscribe({
         next : (res) => {
           console.log(res)
           alert('Registrazione avvenuto con successo')
-          this.router.navigate(['car-register'])
+          this.router.navigate([''])
         },
         error : (err) => {
           console.error('Errore nella registrazione : ', err)
@@ -47,8 +47,18 @@ export class RegisterComponent {
       })
     }
     else{
-      alert('Impossibile registarsi. Controlla i campi!')
+      alert('Impossibile registarsi. Controlla i campi!');
+      this.markFormFieldsAsInvalid();
     }
   }
-  
+
+  markFormFieldsAsInvalid() {
+    Object.keys(this.RegisterUserForm.controls).forEach(field => {
+      const control = this.RegisterUserForm.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+        control.markAsDirty({ onlySelf: true });
+      }
+    });
+  }
 }

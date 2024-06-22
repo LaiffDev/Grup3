@@ -29,11 +29,11 @@ app.post    ('/api/cars/insert', cars.create)
 app.put     ('/api/cars/update/:id', cars.update)
 app.delete  ('/api/cars/delete/:id', cars.delete)
 
-app.get('/api/columns', columns.index)
-app.get('/api/columns/:id', columns.show)
-app.get('/api/columns/insert', columns.create)
-app.get('/api/columns/update/:id', columns.update)
-app.get('/api/columns/delete/:id', columns.delete)
+app.get     ('/api/columns', columns.index)
+app.get     ('/api/columns/:id', columns.show)
+app.get     ('/api/columns/insert', columns.create)
+app.get     ('/api/columns/update/:id', columns.update)
+app.get     ('/api/columns/delete/:id', columns.delete)
 
 app.listen(PORT, () => {
   models.sequelize
