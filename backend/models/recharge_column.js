@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      recharge_column.belongsToMany(models.Car, {
+      recharge_column.belongsToMany(models.car, {
         through: 'link_car_column',
         foreignKey: 'column_id',
         otherKey: 'car_plate'
