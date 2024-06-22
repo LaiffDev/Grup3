@@ -34,7 +34,7 @@ export class RegisterComponent {
     // Destructure form values for better readability
     const { full_name, cod_fisc, phone_number,  email, secret } = this.RegisterUserForm.value
 
-    if(full_name && cod_fisc && phone_number && email && secret){
+    if (full_name && cod_fisc && phone_number.length === 10 && email && secret) {
       this.userService.RegisterUser(full_name,cod_fisc,phone_number,email,secret).subscribe({
         next : (res) => {
           console.log(res)
