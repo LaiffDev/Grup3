@@ -13,15 +13,18 @@ module.exports = {
       },
       phone_number: {
         type: Sequelize.STRING(10),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       cod_fisc: {
         type: Sequelize.STRING(16),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       secret: {
         type: Sequelize.STRING,

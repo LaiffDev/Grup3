@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('car_recharge_columns', {
+    await queryInterface.createTable('link_car_column', {
       car_plate: {
         type: Sequelize.STRING(7),
         references: {
@@ -34,6 +34,6 @@ module.exports = {
     })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('car_recharge_columns');
+    await queryInterface.dropTable('link_car_column');
   }
 }
