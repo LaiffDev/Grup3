@@ -1,5 +1,36 @@
 <app-header></app-header>
-
-
-
-<p>{{car}}</p>
+<div class="container m-auto">
+    <div class="bg-[#F3F2F2] rounded-br-2xl rounded-bl-2xl p-5 flex gap-10 justify-center items-center shadow-md">
+        <div>
+            @if(car.model == 'i3'){
+                <img [src]="carModels.i3" [alt]="car.model" class="w-[250px]">
+            }
+            @else{
+                <img [src]="carModels.model3" [alt]="car.model" class="w-[250px]">
+            }   
+            
+        </div>
+        <div class="font-medium">
+            <p>MODELLO : {{ car.model }}</p>
+            <p>TARGA : {{ car.plate }}</p>
+            <button (click)="caricaMacchina()" class="bg-blue-400 p-2 text-white w-[60%]">
+                <span [hidden]="isMacchinaInCarica">Carica</span>
+                <span [hidden]="!isMacchinaInCarica">Stop</span>
+            </button>
+        </div>
+    </div>
+    <div>
+        @if(isMacchinaInCarica){
+            <div class="flex justify-between p-5 text-green-600 font-medium">
+                <p [hidden]="percentualeMacchina === 100" class="">in carica</p>
+                @if(percentualeMacchina === 100){
+                    <p>carica completata</p>
+                }
+                <p>{{percentualeMacchina}}%</p>
+            </div>
+             <!-- this div below has to load the background with the percentage of percentualemacchina -->
+             <div [style.width.%]="percentualeMacchina" [style.backgroundColor]="'green'" class="p-3"></div>
+        }
+    </div>
+    
+</div>

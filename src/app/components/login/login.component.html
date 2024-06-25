@@ -3,7 +3,7 @@
       <img src="../../../assets/images/logo.png" alt="Logo">
   </div>
   <div class="text-center mt-4 mb-2 name">
-      Welcome to G3
+      G3 Power Supply
   </div>
   <form [formGroup]="UserCredentials" (ngSubmit)="loginUser()" class="p-3 mt-3">
       <div class="form-field d-flex align-items-center">
@@ -17,10 +17,13 @@
             <i class="{{ hide ? 'fas fa-eye-slash' : 'fas fa-eye' }}"></i>
           </button>
       </div>
+      <a href="#" class="float-right">password dimenticato?</a>
       <button class="btn mt-5" type="submit">Login</button>
   </form>
-  <div class="text-center fs-6 mt-4">
-      <a href="#">Forget password?</a> or 
-      <a routerLink="/register">Sign up</a>
+  <div class="text-center fs-6 mt-4 p-4">
+      oppure 
+      <br>
+      <br>
+      <a routerLink="/register">Registrati</a>
   </div>
 </div>
