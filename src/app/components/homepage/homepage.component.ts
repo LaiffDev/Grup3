@@ -34,17 +34,10 @@ export class HomepageComponent {
     if (typeof localStorage !== 'undefined') {
       this.userID = localStorage.getItem('userID');
       console.log(this.userID)
-
-      this.carService.RetrieveCar(this.userID).subscribe({
-        next:(res) => {
-          this.cars.push(res)
-          console.log("Dati macchina : ", this.cars)
-        },
-        error:(err) => {
-          console.error('Errore richiesta per avere dati della macchina : ', err)
-        }
-      })
     }
+
+    this.retrieveCar()
+
   }
 
     /***********************
@@ -66,7 +59,16 @@ export class HomepageComponent {
    * FUNCTION TO GET CAR
    ************************/
   public retrieveCar(){
-
+    this.carService.RetrieveCar(this.userID).subscribe({
+      next:(res) => {
+        console.log(res)
+        this.cars.push(res)
+        console.log("Dati macchina : ", this.cars)
+      },
+      error:(err) => {
+        console.error('Errore richiesta per avere dati della macchina : ', err)
+      }
+    })
   }
 
 }

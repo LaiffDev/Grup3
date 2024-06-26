@@ -23,7 +23,7 @@ export class CarRegistrationService {
       return this._http.post<Car>(`${environment.baseUrl}/api/cars/insert`, body)
     }
 
-    public RetrieveCar(user_id: string){
-      return this._http.get(`${environment.baseUrl}/api/cars/${user_id}`)
+    public RetrieveCar(user_id: string):Observable<Car[]>{
+      return this._http.get<Car[]>(`${environment.baseUrl}/api/cars/${user_id}`)
     }
 }

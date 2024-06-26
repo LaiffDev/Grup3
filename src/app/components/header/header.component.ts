@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { CarRegisterComponent } from '../car-register/car-register.component';
-import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-header',
@@ -9,15 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  readonly dialog = inject(MatDialog);
 
-  openDialog() {
-    const dialogRef = this.dialog.open(CarRegisterComponent,{});
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
   constructor(private router : Router) {}
 
   username: string;
