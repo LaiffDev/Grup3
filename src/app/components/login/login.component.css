@@ -17,7 +17,7 @@ body {
 .wrapper {
     max-width: 350px;
     min-height: 500px;
-    margin: 80px auto;
+    margin: 200px auto;
     padding: 40px 30px 30px 30px;
     background-color: #ecf0f3;
     border-radius: 15px;
@@ -126,7 +126,7 @@ body {
 }
 
 .wrapper a:hover {
-    color: #039BE5;
+    color: #025883;
 }
 
 @media(max-width: 380px) {

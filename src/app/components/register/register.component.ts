@@ -31,11 +31,10 @@ export class RegisterComponent {
    * USING THE UserAuthenticationService
    *************************************/
   saveUserDetails() {
-    // Destructure form values for better readability
-    const { full_name, cod_fisc, phone_number,  email, secret } = this.RegisterUserForm.value
+    const { full_name, phone_number, cod_fisc, email, secret } = this.RegisterUserForm.value
 
-    if (full_name && cod_fisc && phone_number.length === 10 && email && secret) {
-      this.userService.RegisterUser(full_name,cod_fisc,phone_number,email,secret).subscribe({
+    if (full_name && phone_number && cod_fisc && email && secret) {
+      this.userService.RegisterUser(full_name,phone_number,cod_fisc,email,secret).subscribe({
         next : (res) => {
           console.log(res)
           alert('Registrazione avvenuto con successo')
@@ -48,17 +47,17 @@ export class RegisterComponent {
     }
     else{
       alert('Impossibile registarsi. Controlla i campi!');
-      this.markFormFieldsAsInvalid();
+      // this.markFormFieldsAsInvalid();
     }
   }
 
-  markFormFieldsAsInvalid() {
-    Object.keys(this.RegisterUserForm.controls).forEach(field => {
-      const control = this.RegisterUserForm.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-        control.markAsDirty({ onlySelf: true });
-      }
-    });
-  }
+  // markFormFieldsAsInvalid() {
+  //   Object.keys(this.RegisterUserForm.controls).forEach(field => {
+  //     const control = this.RegisterUserForm.get(field);
+  //     if (control instanceof FormControl) {
+  //       control.markAsTouched({ onlySelf: true });
+  //       control.markAsDirty({ onlySelf: true });
+  //     }
+  //   });
+  // }
 }

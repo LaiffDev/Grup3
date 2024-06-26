@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CarRegistrationService } from '../../services/car-registration.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CarRegisterComponent {
   hide = true;
+  readonly dialog = inject(MatDialogRef<CarRegisterComponent>);
 
   constructor(private carService : CarRegistrationService, private router : Router){}
 
@@ -30,6 +32,7 @@ export class CarRegisterComponent {
           console.log(res)
           alert('Macchina registrata con successo!')
           this.router.navigate(["home"])
+          this.dialog.close();
         },
         error:(err) => {
           console.error('Errore nella registrazione: ', err)
