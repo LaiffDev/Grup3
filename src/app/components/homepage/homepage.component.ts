@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../models/user';
 import { CarRegistrationService } from '../../services/car-registration.service';
+import { Car } from '../../models/car';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { CarRegistrationService } from '../../services/car-registration.service'
 })
 export class HomepageComponent {
 
-  car: any = []
+  cars:any = []
+
   user: User | undefined;
   userID: string | null = null;
   isMacchinaInCarica = false
@@ -20,33 +22,21 @@ export class HomepageComponent {
     i3 : '../../../assets/images/bwm-i3.png',
     model3 : '../../../assets/images/model-3.png'
   }
-    
+
 
   constructor(
     private carService: CarRegistrationService,
-  ) { 
-    
+  ) {
+
    }
 
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
       this.userID = localStorage.getItem('userID');
       console.log(this.userID)
-      this.carService.RetrieveCar(this.userID).forEach(car => {
-        this.car = JSON.stringify(car)
-        console.log(this.car)
-      })
+      this.retrieveCar()
     }
-
-    this.carService.RetrieveCar(this.userID).subscribe({
-      next:(res) => {
-        this.car = res
-        console.log("Dati macchina : ", this.car)
-      },
-      error:(err) => {
-        console.error('Errore richiesta per avere dati della macchina : ', err)
-      }
-    })
+    
   }
 
     /***********************
@@ -55,13 +45,28 @@ export class HomepageComponent {
     public caricaMacchina() {
       this.isMacchinaInCarica = !this.isMacchinaInCarica;
       const intervalId = setInterval(() => {
-          this.percentualeMacchina += 5;
+          this.percentualeMacchina += 1;
           if (this.percentualeMacchina >= 100) {
               this.percentualeMacchina = 100; // Ensures it does not exceed 100
               console.log(this.percentualeMacchina);
               clearInterval(intervalId); // Stop the interval
           }
-      }, 1000);
+      }, 5000);
   }
-  
+
+    /***********************
+   * FUNCTION TO GET CAR
+   ************************/
+  public retrieveCar(){
+    this.carService.RetrieveCar(this.userID).subscribe({
+      next:(res) => {
+        this.cars.push(res)
+        console.log("Dati macchina : ", this.cars)
+      },
+      error:(err) => {
+        console.error('Errore richiesta per avere dati della macchina : ', err)
+      }
+    })
+  }
+
 }
