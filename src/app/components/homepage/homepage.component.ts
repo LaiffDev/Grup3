@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { User } from '../../models/user';
 import { CarRegistrationService } from '../../services/car-registration.service';
 import { Car } from '../../models/car';
+import { CarRegisterComponent } from '../car-register/car-register.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -10,6 +12,15 @@ import { Car } from '../../models/car';
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent {
+  readonly dialog = inject(MatDialog);
+
+  openDialog() {
+    const dialogRef = this.dialog.open(CarRegisterComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   cars:any = []
 
@@ -25,10 +36,7 @@ export class HomepageComponent {
 
 
   constructor(
-    private carService: CarRegistrationService,
-  ) {
-
-   }
+    private carService: CarRegistrationService,) {}
 
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
