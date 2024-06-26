@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      battery_capacity: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

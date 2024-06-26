@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     plate: DataTypes.STRING(7),
     owner_id: DataTypes.INTEGER,
     manufacturer: DataTypes.STRING,
-    model: DataTypes.STRING
+    model: DataTypes.STRING,
+    battery_capacity: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'car',
