@@ -31,9 +31,9 @@ app.delete  ('/api/cars/delete/:id', cars.delete)
 
 app.get     ('/api/columns', columns.index)
 app.get     ('/api/columns/:id', columns.show)
-app.get     ('/api/columns/insert', columns.create)
-app.get     ('/api/columns/update/:id', columns.update)
-app.get     ('/api/columns/delete/:id', columns.delete)
+app.post    ('/api/columns/insert', columns.create)
+app.put     ('/api/columns/update/:id', columns.update)
+app.delete  ('/api/columns/delete/:id', columns.delete)
 
 app.listen(PORT, () => {
   models.sequelize
