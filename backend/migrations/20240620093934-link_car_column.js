@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('link_car_column', {
+    await queryInterface.createTable('link_cars_columns', {
       car_plate: {
         type: Sequelize.STRING(7),
         references: {
@@ -16,7 +16,7 @@ module.exports = {
       column_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'recharge_column',
+          model: 'recharge_columns',
           key: 'id'
         },
         onDelete: 'CASCADE',
@@ -34,6 +34,6 @@ module.exports = {
     })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('link_car_column');
+    await queryInterface.dropTable('link_cars_columns');
   }
 }

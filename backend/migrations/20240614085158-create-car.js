@@ -39,6 +39,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    //await queryInterface.removeConstraint('link_cars_columns', 'link_cars_columns_car_plate_fkey')
     await queryInterface.dropTable('cars')
   }
 }
