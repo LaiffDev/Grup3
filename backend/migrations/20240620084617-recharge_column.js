@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('recharge_columns', {
+    await queryInterface.createTable('recharge_column', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true
@@ -23,6 +23,6 @@ module.exports = {
   },
   async down (queryInterface, Sequelize) {
     //await queryInterface.removeConstraint('link_cars_columns', 'link_cars_columns_column_id_fkey')
-    await queryInterface.dropTable('recharge_columns')
+    await queryInterface.dropTable('recharge_column')
   }
 }
