@@ -16,7 +16,7 @@ module.exports = {
       column_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'recharge_columns',
+          model: 'recharge_column',
           key: 'id'
         },
         onDelete: 'CASCADE',
