@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class link_cars_columns extends Model {
+    class link_car_column extends Model {
       /**
        * Helper method for defining associations.
        * This method is not a part of Sequelize lifecycle.
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         
       }
     }
-    link_cars_columns.init({
+    link_car_column.init({
         car_plate: {
             type: DataTypes.STRING(7),
             primaryKey: true
@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
           updated_at: DataTypes.DATE
     }, {
       sequelize,
-      modelName: 'link_cars_columns',
+      modelName: 'link_car_column',
       underscored: true,
     });
-    return link_cars_columns;
+    return link_car_column;
   };

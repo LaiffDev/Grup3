@@ -1,10 +1,10 @@
-rechargeColumns = require('../models/').recharge_column
+rechargeColumn = require('../models/').recharge_column
 
 module.exports = {
   index(req, res) {
-    rechargeColumns.findAll()
-      .then((rechargeColumns) => {
-        res.status(200).json(rechargeColumns)
+    rechargeColumn.findAll()
+      .then((rechargeColumn) => {
+        res.status(200).json(rechargeColumn)
       })
       .catch((error) => {
         res.status(500).json(error)
@@ -12,9 +12,9 @@ module.exports = {
   },
 
   show(req, res) {
-    rechargeColumns.findByPk(req.params.id)
-      .then((rechargeColumns) => {
-        res.status(200).json(rechargeColumns)
+    rechargeColumn.findByPk(req.params.id)
+      .then((rechargeColumn) => {
+        res.status(200).json(rechargeColumn)
       })
       .catch((error) => {
         res.status(500).json(error)
@@ -22,8 +22,8 @@ module.exports = {
   },
 
   create(req, res) {
-    rechargeColumns.create(req.body)
-      .then((newRechargeColumns) => {
+    rechargeColumn.create(req.body)
+      .then((newrechargeColumn) => {
         res.status(200).json(newRechargeColumn)
       })
       .catch((error) => {
@@ -32,7 +32,7 @@ module.exports = {
   },
 
   update(req, res) {
-    rechargeColumns.update(req.body)
+    rechargeColumn.update(req.body)
       .then((updatedRecords) => {
         res.status(200).json(updatedRecords)
       })
@@ -42,7 +42,7 @@ module.exports = {
   },
 
   delete(req, res) {
-    rechargeColumns.destroy({
+    rechargeColumn.destroy({
       where: {
         id: req.params.id
       }
