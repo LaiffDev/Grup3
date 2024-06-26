@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       car.belongsToMany(models.recharge_column, {
-        through: 'link_car_column',
+        through: 'link_cars_columns',
         foreignKey: 'car_plate',
         otherKey: 'column_id'
       })
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'car',
-    underscored: true,
+    underscored: true
   });
   return car;
 };

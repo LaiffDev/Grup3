@@ -41,5 +41,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-//sequelize model:create --name=user --attributes cod_fisc:string,phone_number:string,email:string,secret:string --underscored
