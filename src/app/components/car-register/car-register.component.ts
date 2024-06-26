@@ -19,15 +19,16 @@ export class CarRegisterComponent {
   CarRegisterForm = new FormGroup({
     plate : new FormControl('',[Validators.required]),
     manufacturer : new FormControl('',[Validators.required]),
-    model : new FormControl('',[Validators.required])
+    model : new FormControl('',[Validators.required]),
+    battery_capacity : new FormControl('',[Validators.required])
   })
 
   registerCar(){
-    const { plate, manufacturer, model } = this.CarRegisterForm.value;
+    const { plate, manufacturer, model, battery_capacity } = this.CarRegisterForm.value;
     const userID = localStorage.getItem('userID')
 
-    if(plate && manufacturer && model && plate.length === 7){
-      this.carService.CarRegister(plate, manufacturer, model, userID).subscribe({
+    if(plate && manufacturer && model && plate.length === 7 && battery_capacity){
+      this.carService.CarRegister(plate, manufacturer, model, userID, battery_capacity).subscribe({
         next:(res) => {
           console.log(res)
           alert('Macchina registrata con successo!')

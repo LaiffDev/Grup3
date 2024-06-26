@@ -4,5 +4,6 @@ export interface Car {
     model: string | undefined,
     createdAt: string | undefined,
     updatedAt: string | undefined,
-    owner_id: string | undefined
+    owner_id: string | undefined,
+    battery_capacity : string | undefined
 }

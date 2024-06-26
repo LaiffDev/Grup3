@@ -34,9 +34,8 @@ export class HomepageComponent {
     if (typeof localStorage !== 'undefined') {
       this.userID = localStorage.getItem('userID');
       console.log(this.userID)
-      this.retrieveCar()
     }
-    
+    this.retrieveCar()
   }
 
     /***********************
