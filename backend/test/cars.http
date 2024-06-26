@@ -4,7 +4,7 @@ GET {{url}}
 
 ###
 
-GET {{url}}/1719045374251-1843
+GET {{url}}/102389712098371
 
 ###
 
@@ -15,7 +15,8 @@ Content-type: application/json
     "plate": "BW123WN",
     "manufacturer": "qowdiqowid",
     "model": "sdf",
-    "owner_id": "1718976469031-7936"
+    "battery_capacity": 200,
+    "owner_id": "102389712098371"
 }
 
 ###
