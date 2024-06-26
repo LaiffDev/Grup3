@@ -44,7 +44,7 @@ export class LoginComponent {
             localStorage.setItem('username', user.full_name);
             localStorage.setItem('userID',user.id)
             
-            this._router.navigate(['home']);
+            this._router.navigate(["home"]);
             alert('Login avvenuto con successo!');
           } else {
             alert('Credenziali non valide!');

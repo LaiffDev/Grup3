@@ -12,7 +12,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class CarRegisterComponent {
   hide = true;
-  readonly dialog = inject(MatDialogRef<CarRegisterComponent>);
 
   constructor(private carService : CarRegistrationService, private router : Router){}
 
@@ -32,8 +31,7 @@ export class CarRegisterComponent {
         next:(res) => {
           console.log(res)
           alert('Macchina registrata con successo!')
-          this.router.navigate(["home"])
-          this.dialog.close();
+          this.router.navigate([""])
         },
         error:(err) => {
           console.error('Errore nella registrazione: ', err)
