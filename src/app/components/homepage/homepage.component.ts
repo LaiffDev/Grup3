@@ -35,7 +35,7 @@ export class HomepageComponent {
       this.userID = localStorage.getItem('userID');
       console.log(this.userID)
     }
-    this.retrieveCar()
+    //this.retrieveCar()
   }
 
     /***********************
