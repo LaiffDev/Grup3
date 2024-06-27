@@ -12,11 +12,10 @@ POST {{url}}/insert
 Content-Type: application/json
 
 {
-    "id": "102389712098371",
-    "full_name": "real",
-    "cod_fisc": "no",
-    "phone_number": "23983892",
-    "email": "CODIO",
+    "full_name": "unreal",
+    "cod_fisc": "qualcosa",
+    "phone_number": "3270650975",
+    "email": "sldfihsoifhsp",
     "secret": "CODIO"
 }
 

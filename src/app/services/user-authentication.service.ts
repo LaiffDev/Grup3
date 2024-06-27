@@ -14,9 +14,7 @@ export class UserAuthenticationService {
 
   //SERVICE per la registrazione dell'utente
   public RegisterUser(full_name: string, phone_number: string, cod_fisc: string, email: string, secret: string ): Observable<User> {
-    const id = `${Date.now()}-${Math.floor(Math.random() * 10000)}`;
     const body = {
-      id: id,
       full_name: full_name,
       phone_number: phone_number,
       cod_fisc: cod_fisc,
