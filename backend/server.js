@@ -5,6 +5,7 @@ const models = require('./models')
 const users = require('./controllers/users')
 const cars = require('./controllers/cars')
 const columns = require('./controllers/columns')
+const rechargeStations = require('./controllers/stations')
 
 const app = express()
 const PORT = 3000
@@ -34,6 +35,8 @@ app.get     ('/api/columns/:id', columns.show)
 app.post    ('/api/columns/insert', columns.create)
 app.put     ('/api/columns/update/:id', columns.update)
 app.delete  ('/api/columns/delete/:id', columns.delete)
+
+app.get     ('/api/stations', rechargeStations.index)
 
 app.listen(PORT, () => {
   models.sequelize

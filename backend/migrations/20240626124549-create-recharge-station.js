@@ -3,8 +3,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('recharge_stations', {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+      },
       plus_code: {
-        primaryKey: true,
         type: Sequelize.STRING(50)
       },
       normal_charge_price: {
