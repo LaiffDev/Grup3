@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      recharge_station.hasMany(models.recharge_column, { foreignKey: 'plus_code' })
     }
   }
   recharge_station.init({

@@ -22,7 +22,6 @@ module.exports = {
     })
   },
   async down (queryInterface, Sequelize) {
-    //await queryInterface.removeConstraint('link_cars_columns', 'link_cars_columns_column_id_fkey')
     await queryInterface.dropTable('recharge_columns')
   }
 }
