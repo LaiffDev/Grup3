@@ -31,7 +31,7 @@ export class CarRegisterComponent {
         next:(res) => {
           console.log(res)
           alert('Macchina registrata con successo!')
-          this.router.navigate([""])
+          this.router.navigate(["home"])
         },
         error:(err) => {
           console.error('Errore nella registrazione: ', err)
