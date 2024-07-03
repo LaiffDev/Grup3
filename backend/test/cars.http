@@ -4,7 +4,7 @@ GET {{url}}
 
 ###
 
-GET {{url}}/102389712098371
+GET {{url}}/1
 
 ###
 
@@ -16,7 +16,7 @@ Content-type: application/json
     "manufacturer": "qowdiqowid",
     "model": "sdf",
     "battery_capacity": 200,
-    "owner_id": "102389712098371"
+    "owner_id": "1"
 }
 
 ###
