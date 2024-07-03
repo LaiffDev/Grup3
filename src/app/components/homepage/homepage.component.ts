@@ -28,9 +28,7 @@ export class HomepageComponent {
 
 
   constructor(
-    private carService: CarRegistrationService,
-    private rechargeService : RechargeService
-  ) {}
+    private carService: CarRegistrationService,private rechargeService : RechargeService) {}
 
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
@@ -38,7 +36,6 @@ export class HomepageComponent {
     }
 
     this.retrieveCar()
-    this.getRechargeStation()
 
   }
 
@@ -55,7 +52,7 @@ export class HomepageComponent {
           this.percentualeMacchina = 100; // Ensures it does not exceed 100
           this.stopCarica();
         }
-      }, 200);
+      }, 500);
     } else {
       this.stopCarica();
     }
@@ -85,6 +82,7 @@ export class HomepageComponent {
     })
   }
 
+
   public getRechargeStation(){
     this.rechargeService.GetStation().subscribe({
       next: (res) => {
@@ -96,5 +94,6 @@ export class HomepageComponent {
       }
     })
   }
+
 
 }
