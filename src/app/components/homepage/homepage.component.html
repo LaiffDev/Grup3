@@ -2,7 +2,7 @@
 
 <div class="container m-auto">
     <div class="bg-[#F3F2F2] rounded-br-2xl rounded-bl-2xl flex gap-10 justify-center items-center shadow-md p-5">
-        @for(car of cars; track cars){
+        @for(car of cars; track car.owner_id){
             <div>
                 @if(car.model == 'i3'){
                     <img [src]="carModels.i3" [alt]="car.model" class="w-[300px]">

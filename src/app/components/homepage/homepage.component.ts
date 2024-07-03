@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { User } from '../../models/user';
 import { CarRegistrationService } from '../../services/car-registration.service';
 import { RechargeService } from '../../services/recharge.service';
+import { Car } from '../../models/car';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { RechargeService } from '../../services/recharge.service';
 export class HomepageComponent {
  
 
-  cars:any = []
+  cars:Car[]
 
   user: User | undefined;
   userID: string | null = null;
@@ -28,7 +29,8 @@ export class HomepageComponent {
 
 
   constructor(
-    private carService: CarRegistrationService,private rechargeService : RechargeService) {}
+    private carService: CarRegistrationService,
+    private rechargeService : RechargeService) {}
 
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
@@ -36,6 +38,7 @@ export class HomepageComponent {
     }
 
     this.retrieveCar()
+    this.getRechargeStation()
 
   }
 
