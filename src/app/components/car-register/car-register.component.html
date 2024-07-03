@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="logo">
+    <p class="title">DATI VEICOLO</p>
+  </div>
+  <form [formGroup]="CarRegisterForm" (submit)="registerCar()" class="p-3 mt-3" novalidate>
+    <div class="form-field">
+      <span class="icon fas fa-car"></span>
+      <input type="text" name="plate" id="plate" placeholder="Targa" formControlName="plate" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-industry"></span>
+      <input type="text" name="manufacturer" id="manufacturer" placeholder="Marca della Macchina" formControlName="manufacturer" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-car-side"></span>
+      <input type="text" name="model" id="model" placeholder="Modello della Macchina" formControlName="model" required>
+    </div>
+
+    <div class="form-field">
+      <span class="icon fas fa-car-side"></span>
+      <input type="text" name="battery_capacity" id="battery_capacity" placeholder="Capacità della Macchina" formControlName="battery_capacity" required>
+    </div>
+
+    <div class="button-cta mt-5">
+      <button class="ctas" type="submit">CONFERMA</button>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,71 @@
-<p>homepage works!</p>
+<app-header></app-header>
+
+<div class="container m-auto ">
+    <div class="bg-[#F3F2F2] rounded-br-2xl rounded-bl-2xl p-5 flex gap-10 justify-center items-center shadow-md h-[30vh]">
+        @for(car of cars; track cars){
+            <div>
+                @if(car.model == 'i3'){
+                    <img [src]="carModels.i3" [alt]="car.model" class="w-[300px]">
+                }
+                @else{
+                    <img [src]="carModels.model3" [alt]="car.model" class="w-[300px]">
+                }   
+            </div>
+            <div class="font-medium">
+                @if(car.model){
+                    <h1>{{ car.manufacturer }}</h1>
+                    <p>Modello : {{ car.model }}</p>
+                    <p>Targa : {{ car.plate }}</p>
+                    <p>Capacità Batteria : {{ car.battery_capacity }} kWh</p>
+                    @if(isMacchinaInCarica){
+                        <button (click)="stopCarica()" class="bg-blue-400 p-2 text-white w-[60%]" >
+                            <span>Stop</span>
+                        </button>
+                    }
+                    @if(!isMacchinaInCarica){
+                        <button (click)="caricaMacchina()" class="bg-blue-400 p-2 text-white w-[60%]">
+                            <span>Carica</span>
+                        </button>
+                    }
+                }
+            </div>
+        }
+    </div>
+    <div class="p-5">
+        @if(isMacchinaInCarica){
+            <div class="flex justify-between p-10 text-green-600 font-medium">
+                <p>in carica</p>
+                <p>{{percentualeMacchina}}%</p>
+            </div>
+             <!-- this div below has to load the background with the percentage of percentualemacchina -->
+              <div class="bg-slate-200 rounded-full">
+                <div [style.width.%]="percentualeMacchina" [style.backgroundColor]="'green'" class="p-4 rounded-full"></div>
+              </div>
+        }
+        @else {
+            <div class="flex justify-between p-10 text-green-600 font-medium">
+                <p [hidden]="percentualeMacchina === 100" class="">in carica</p>
+                @if(percentualeMacchina >= 100){
+                    <p>carica completata</p>
+                }
+                <p>{{percentualeMacchina}}%</p>
+            </div>
+
+              <div class="bg-slate-200 rounded-full">
+                <div [style.width.%]="percentualeMacchina" [style.backgroundColor]="'green'" class="p-4 rounded-full"></div>
+              </div> 
+        }
+
+    </div>
+
+    <div class="bg-[#b93fdf2f] rounded-lg gap-10 items-baseline shadow-md m-5 p-5 drop-shadow-2xl ">
+        <div>
+            <p><strong>TARIFFA :</strong> € 25</p>
+            <p><strong>COSTO AL kWh : </strong> 0,20 €/kWh </p>
+            <p><strong>LOCALITA' :</strong> Unknown</p>
+        </div>
+        <p class="text-xs text-center font-bold">** Ti verra addebitato € 25 dal tuo wallet **</p>
+
+    </div>
+</div>
+

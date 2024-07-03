@@ -1,31 +1,29 @@
-<div class="example-container">
-  <div class="login-card">
-    <div class="logo">
-      <img src="../../../assets/images/logo.png" alt="">
-    </div>
-    <form [formGroup]="UserCredentials" (submit)="loginUser()">
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="pat@example.com" formControlName="email" required/>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required/>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <div class="forgot-password">
-      <a href="">password dimenticata?</a>
-      </div>
-
-      <div class="button-cta">
-        <button class="ctas">ACCEDI</button>
-        <span>oppure</span>
-        <button class="ctas">REGISTRATI</button>
-      </div>
-    </form>
+<div class="wrapper">
+  <div class="logo">
+      <img src="../../../assets/images/logo.png" alt="Logo">
   </div>
-
+  <div class="text-center mt-4 mb-2 name">
+      G3 Power Supply
+  </div>
+  <form [formGroup]="UserCredentials" (ngSubmit)="loginUser()" class="p-3 mt-3">
+      <div class="form-field d-flex align-items-center">
+          <span class="far fa-user"></span>
+          <input type="text" name="email" id="email" placeholder="Email" formControlName="email" required>
+      </div>
+      <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input type="password" name="secret" id="pwd" placeholder="Password" formControlName="secret" [type]="hide ? 'password' : 'text'" required>
+          <button type="button" class="toggle-password" (click)="hide = !hide" aria-label="Hide password" [attr.aria-pressed]="hide">
+            <i class="{{ hide ? 'fas fa-eye-slash' : 'fas fa-eye' }}"></i>
+          </button>
+      </div>
+      <a href="#" class="float-right">password dimenticato?</a>
+      <button class="btn mt-5" type="submit">Login</button>
+  </form>
+  <div class="text-center fs-6 mt-4 p-4">
+      oppure 
+      <br>
+      <br>
+      <a routerLink="/register">Registrati</a>
+  </div>
 </div>
