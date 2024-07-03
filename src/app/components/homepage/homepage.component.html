@@ -1,3 +1,22 @@
 <app-header></app-header>
+@for(car of cars; track car.owner_id){
+    <!-- mostra l'immagine della macchina -->
+    <div>
+        @if(car.model == 'i3'){
+            <img [src]="carModels.i3" [alt]="car.model">
+        }
+        @else {
+            <img [src]="carModels.model3" [alt]="car.model">
+        }
+    </div>
 
+    <!-- mostra i dettagli della macchina -->
+    <div>
+        <p>{{ car.manufacturer }}</p>
+        <p>{{ car.model }}</p>
+        <p>{{ car.plate }}</p>
+        <button (click)="caricaMacchina()" class="bg-blue-500 text-white p-4">Carica</button>
+        <p>{{ percentualeMacchina }}%</p>
+    </div>
+}
 

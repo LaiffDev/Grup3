@@ -33,7 +33,6 @@ export class HomepageComponent {
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
       this.userID = localStorage.getItem('userID');
-      console.log(this.userID)
     }
 
     this.retrieveCar()
@@ -49,10 +48,9 @@ export class HomepageComponent {
           this.percentualeMacchina += 1;
           if (this.percentualeMacchina >= 100) {
               this.percentualeMacchina = 100; // Ensures it does not exceed 100
-              console.log(this.percentualeMacchina);
               clearInterval(intervalId); // Stop the interval
           }
-      }, 5000);
+      }, 3000);
   }
 
     /***********************
@@ -61,7 +59,6 @@ export class HomepageComponent {
   public retrieveCar(){
     this.carService.RetrieveCar(this.userID).subscribe({
       next:(res) => {
-        console.log(res)
         this.cars.push(res)
         console.log("Dati macchina : ", this.cars)
       },
