@@ -1,18 +1,19 @@
-<div class="bg-[#181818] flex place-items-baseline justify-between p-5 text-white">
-    <div class="navs">
-        <button mat-button [matMenuTriggerFor]="menu">
-            <span class="material-symbols-rounded text-white text-4xl">
-                menu
-            </span>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>Profilo</button>
-            <!-- <button mat-menu-item (click)="openDialog()">Registra auto</button> -->
-            <button mat-menu-item (click)="logoutUser()">Logout</button>
-        </mat-menu>
-    </div>
-    <div class="font-bold">
-        <p>Ciao, {{ username }}</p>
-        <p></p>
+<div class="bg-[#181818] text-white">
+    <div class="navs p-3">
+        <div class="flex justify-between items-center">
+                <span [matMenuTriggerFor]="menu" class="material-symbols-rounded text-white text-4xl cursor-pointer">
+                        menu
+                </span>
+                <p class="relative top-1">Ciao, {{ username }}</p>
+
+                <p class="relative top-1">Credito Residuo : 100€</p>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Profilo</button>
+                <!-- <button mat-menu-item (click)="openDialog()">Registra auto</button> -->
+                <button mat-menu-item (click)="logoutUser()">Logout</button>
+            </mat-menu>
+        </div>
+
     </div>
 </div>

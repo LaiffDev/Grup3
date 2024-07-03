@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { User } from '../../models/user';
 import { CarRegistrationService } from '../../services/car-registration.service';
+import { RechargeService } from '../../services/recharge.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class HomepageComponent {
   isMacchinaInCarica: boolean = false
   percentualeMacchina: number = 0
   intervalId: any
+  location: any
 
   carModels = {
     i3 : '../../../assets/images/bwm-i3.png',
@@ -26,7 +28,9 @@ export class HomepageComponent {
 
 
   constructor(
-    private carService: CarRegistrationService,) {}
+    private carService: CarRegistrationService,
+    private rechargeService : RechargeService
+  ) {}
 
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
@@ -34,6 +38,7 @@ export class HomepageComponent {
     }
 
     this.retrieveCar()
+    this.getRechargeStation()
 
   }
 
@@ -50,7 +55,7 @@ export class HomepageComponent {
           this.percentualeMacchina = 100; // Ensures it does not exceed 100
           this.stopCarica();
         }
-      }, 500);
+      }, 200);
     } else {
       this.stopCarica();
     }
@@ -76,6 +81,18 @@ export class HomepageComponent {
       },
       error:(err) => {
         console.error('Errore richiesta per avere dati della macchina : ', err)
+      }
+    })
+  }
+
+  public getRechargeStation(){
+    this.rechargeService.GetStation().subscribe({
+      next: (res) => {
+        this.location = res
+        console.log("Recharge Station : ",res)
+      },
+      error:(err) => {
+        console.error('Recharge Station not available : ',err)
       }
     })
   }

@@ -1,7 +1,7 @@
 <app-header></app-header>
 
-<div class="container m-auto ">
-    <div class="bg-[#F3F2F2] rounded-br-2xl rounded-bl-2xl p-5 flex gap-10 justify-center items-center shadow-md h-[30vh]">
+<div class="container m-auto">
+    <div class="bg-[#F3F2F2] rounded-br-2xl rounded-bl-2xl flex gap-10 justify-center items-center shadow-md p-5">
         @for(car of cars; track cars){
             <div>
                 @if(car.model == 'i3'){
@@ -18,12 +18,12 @@
                     <p>Targa : {{ car.plate }}</p>
                     <p>Capacità Batteria : {{ car.battery_capacity }} kWh</p>
                     @if(isMacchinaInCarica){
-                        <button (click)="stopCarica()" class="bg-blue-400 p-2 text-white w-[60%]" >
+                        <button (click)="stopCarica()" class="bg-[#950952] p-2 text-white w-[60%]" >
                             <span>Stop</span>
                         </button>
                     }
                     @if(!isMacchinaInCarica){
-                        <button (click)="caricaMacchina()" class="bg-blue-400 p-2 text-white w-[60%]">
+                        <button (click)="caricaMacchina()" class="bg-[#950952] p-2 text-white w-[60%]">
                             <span>Carica</span>
                         </button>
                     }
@@ -38,34 +38,42 @@
                 <p>{{percentualeMacchina}}%</p>
             </div>
              <!-- this div below has to load the background with the percentage of percentualemacchina -->
-              <div class="bg-slate-200 rounded-full">
+              <div class="bg-[#acdba680] rounded-full drop-shadow-2xl shadow-md">
                 <div [style.width.%]="percentualeMacchina" [style.backgroundColor]="'green'" class="p-4 rounded-full"></div>
               </div>
         }
         @else {
             <div class="flex justify-between p-10 text-green-600 font-medium">
-                <p [hidden]="percentualeMacchina === 100" class="">in carica</p>
-                @if(percentualeMacchina >= 100){
+                <p [hidden]="percentualeMacchina === 100" class="">carica</p>
+                @if(percentualeMacchina === 100){
                     <p>carica completata</p>
                 }
                 <p>{{percentualeMacchina}}%</p>
             </div>
 
-              <div class="bg-slate-200 rounded-full">
+              <div class="bg-[#acdba680] rounded-full drop-shadow-xl ">
                 <div [style.width.%]="percentualeMacchina" [style.backgroundColor]="'green'" class="p-4 rounded-full"></div>
               </div> 
         }
 
     </div>
 
-    <div class="bg-[#b93fdf2f] rounded-lg gap-10 items-baseline shadow-md m-5 p-5 drop-shadow-2xl ">
-        <div>
-            <p><strong>TARIFFA :</strong> € 25</p>
-            <p><strong>COSTO AL kWh : </strong> 0,20 €/kWh </p>
-            <p><strong>LOCALITA' :</strong> Unknown</p>
-        </div>
-        <p class="text-xs text-center font-bold">** Ti verra addebitato € 25 dal tuo wallet **</p>
+    
+    <div>
+        @for(loc of location; track loc.id){
+            <div class="text-xs font-bold bg-[#E3E7AF] rounded-lg m-5 p-5 drop-shadow-2xl">
+                <p><span>COLONNA : {{ loc.plus_code }}</span></p>
+                <p><strong>TARIFFA :</strong> 25€</p>
+                <p><strong>COSTO AL kWh : </strong> 0,20€/kWh </p>
+            </div>
+
+            }
+        <p class="text-xs text-center font-bold text-red-400">** Ti verranno addebitati il costo di 25€ dal tuo wallet **</p>
 
     </div>
+
+    <!-- <div class="shadow-md w-full m-auto">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5503.843381475785!2d13.126044238502768!3d46.27457185369963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477a3b362ca7f62f%3A0xd6dbf3e050fa8ea3!2s74FJ%2BR2%2C%2033013%20Gemona%20del%20Friuli%20UD!5e0!3m2!1sit!2sit!4v1720017731269!5m2!1sit!2sit" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div> -->
 </div>
 
