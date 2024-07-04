@@ -2,17 +2,17 @@
 
 <div class="container m-auto">
     <div class="bg-[#F3F2F2] rounded-br-2xl rounded-bl-2xl flex gap-10 justify-center items-center shadow-md p-5">
-        @for(car of cars; track car.owner_id){
+        @for(car of cars; track cars){
             <div>
-                @if(car.model == 'i3'){
-                    <img [src]="carModels.i3" [alt]="car.model" class="w-[300px]">
+                @if(car && car.model === 'i3'){
+                    <img [src]="carModels.i3" [alt]="" class="w-[300px]">
                 }
                 @else{
-                    <img [src]="carModels.model3" [alt]="car.model" class="w-[300px]">
+                    <img [src]="carModels.model3" [alt]="" class="w-[300px]">
                 }   
             </div>
             <div class="font-medium">
-                @if(car.model){
+                @if(car){
                     <h1>{{ car.manufacturer }}</h1>
                     <p>Modello : {{ car.model }}</p>
                     <p>Targa : {{ car.plate }}</p>
@@ -28,8 +28,12 @@
                         </button>
                     }
                 }
-            </div>
+            </div> 
         }
+
+            <!-- @if(car.model == 'model3 '){
+                <p>{{ car.plate }}</p>
+            } -->
     </div>
     <div class="p-5">
         @if(isMacchinaInCarica){
@@ -68,7 +72,7 @@
             </div>
 
             }
-        <p class="text-xs text-center font-bold text-red-400">** Ti verranno addebitati il costo di 25€ dal tuo wallet **</p>
+        <p class="text-xs text-center font-bold text-red-400">** Ti verranno addebitati 25€ dal tuo wallet **</p>
 
     </div>
 

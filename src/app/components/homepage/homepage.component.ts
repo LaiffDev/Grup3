@@ -13,7 +13,7 @@ import { Car } from '../../models/car';
 export class HomepageComponent {
  
 
-  cars:Car[]
+  cars: Car[] = []
 
   user: User | undefined;
   userID: string | null = null;
@@ -76,8 +76,8 @@ export class HomepageComponent {
   public retrieveCar(){
     this.carService.RetrieveCar(this.userID).subscribe({
       next:(res) => {
-        this.cars.push(res)
-        console.log("Dati macchina : ", this.cars)
+        this.cars.push(res)  // Ensure cars is an array
+        console.table(this.cars)
       },
       error:(err) => {
         console.error('Errore richiesta per avere dati della macchina : ', err)
