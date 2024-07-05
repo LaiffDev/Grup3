@@ -42,4 +42,8 @@ export class CarRegisterComponent {
       alert('Campi non validi!')
     }
   }
+  onCancel() {
+    this.router.navigate(["home"])
+  }
+
 }
