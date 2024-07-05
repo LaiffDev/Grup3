@@ -5,6 +5,7 @@ module.exports = {
     await queryInterface.createTable('recharge_columns', {
       id: {
         type: Sequelize.INTEGER,
+        autoIncrement: true,
         primaryKey: true
       },
       plus_code: {
